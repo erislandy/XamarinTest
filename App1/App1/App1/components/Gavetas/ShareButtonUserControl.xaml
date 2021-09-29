@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="App1.components.Gavetas.ShareButtonUserControl">
+  <ContentView.Content>
+        <Grid 
+                HorizontalOptions="End"
+                VerticalOptions="Start"
+                WidthRequest="118.743"
+                >
+            <Path
+                      HorizontalOptions="Center"
+                      Data="m 0 36.5857 l 15.7572 -36.5857 h 80.3598 l 15.7572 36.5857z">
+                <Path.Fill>
+                    <LinearGradientBrush StartPoint="0,0"  EndPoint="1,0">
+                        <GradientStop
+                                Color="#b2fffc"
+                                />
+                        <GradientStop
+                                Color="#00fff6"
+                                Offset="0.1"    
+                                />
+
+                        <GradientStop
+                                Color="#0101da"
+                                Offset="1"
+                                />
+                    </LinearGradientBrush>
+
+                </Path.Fill>
+            </Path>
+            <Path
+                        HorizontalOptions="Center"
+                        Margin="0,2.4944,0,0"
+                        Fill="#2e313b"
+                        Data="m 0 43.2377 l 15.1714 -43.2377 h 77.353 l 15.1714 43.2377"
+                        >
+
+            </Path>
+            <Grid
+                    Margin="0,7,0,0"
+                    VerticalOptions="Start"
+                    HorizontalOptions="Center"
+                     >
+                <Path
+                    Aspect="Uniform"
+                    WidthRequest="28"
+                    HeightRequest="28"
+                    Fill="aqua"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Center"
+                    Data="M87,71.4a15.16,15.16,0,0,0-5.65,1.09L31.75,49.89,80.43,29.08A15.13,15.13,0,0,0,87,30.6a15.29,15.29,0,1,0-14.12-9.4l-44.42,19a15.29,15.29,0,1,0-2.26,18.4L73.3,80A15.29,15.29,0,1,0,87,71.4Z"
+                          >
+
+                </Path>
+            </Grid>
+
+        </Grid>
+
+    </ContentView.Content>
+</ContentView>

@@ -1,0 +1,187 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="App1.components.Gavetas.SearchButtomUserControl">
+  <ContentView.Content>
+        <Grid 
+                HorizontalOptions="Center"
+                VerticalOptions="EndAndExpand"
+                WidthRequest="89.62"
+                Margin="0,0,0,0">
+            <Path
+                  HorizontalOptions="Center"
+                  Data="m 0 47.8114 l 22.4267 -47.8114 h 44.76 l 22.4267 47.8114z">
+                <Path.Fill>
+                    <LinearGradientBrush StartPoint="0,0"  EndPoint="1,0">
+                        <GradientStop
+                            Color="#b2fffc"
+                            />
+                        <GradientStop
+                            Color="#00fff6"
+                            Offset="0.1"    
+                            />
+
+                        <GradientStop
+                            Color="#0101da"
+                            Offset="1"
+                            />
+                    </LinearGradientBrush>
+
+                </Path.Fill>
+            </Path>
+            <Path
+                    HorizontalOptions="Center"
+                    WidthRequest="88.22"
+                    Margin="0,1.59,0,0"
+                    Fill="#2e313b"
+                    Data="m 0 53.11 l 22.05 -53.11 h 44.114 l 22.05 53.11"
+                    >
+
+            </Path>
+            <StackLayout
+                    Spacing="0"
+                    VerticalOptions="Start"
+                    >
+                <!--Barra 1-->
+                <Grid 
+                        Margin="0,3.6,0,0"
+                        HorizontalOptions="Center">
+                    <Rectangle
+                            Fill="#00fff6"
+                            WidthRequest="34.87"
+                            HeightRequest="2.757"
+                            HorizontalOptions="Center"
+                            VerticalOptions="Center"
+                            />
+                    <Rectangle
+                            WidthRequest="36.55"
+                            HeightRequest="3.361"
+                            HorizontalOptions="Center"
+                            VerticalOptions="Center"
+                            RadiusX="1.15"
+                            RadiusY="1.15"
+                            >
+                        <Rectangle.Fill>
+                            <RadialGradientBrush Center="0.5,0.5">
+                                <GradientStop
+                                        Color="Transparent"
+                                        Offset="0.6"
+                                        />
+                                <GradientStop
+                                        Color="Black"
+                                        Offset="0.9"    
+                                        />
+
+                            </RadialGradientBrush>
+
+                        </Rectangle.Fill>
+                    </Rectangle>
+                </Grid>
+                <!--Fin Barra 1-->
+                <!--Barra 2-->
+                <Grid 
+                        Margin="0,2.0,0,0"
+                        HorizontalOptions="Center">
+                    <Rectangle
+                            Fill="#00fff6"
+                            WidthRequest="26.824"
+                            HeightRequest="2.7571"
+                            HorizontalOptions="Center"
+                            VerticalOptions="Center"
+                            />
+                    <Rectangle
+                            WidthRequest="29.4"
+                            HeightRequest="3.36"
+                            HorizontalOptions="Center"
+                            VerticalOptions="Center"
+                            RadiusX="1.15"
+                            RadiusY="1.15"
+                            >
+                        <Rectangle.Fill>
+                            <RadialGradientBrush Center="0.5,0.5">
+                                <GradientStop
+                                        Color="Transparent"
+                                        Offset="0.6"
+                                        />
+                                <GradientStop
+                                        Color="Black"
+                                        Offset="0.9"    
+                                        />
+
+                            </RadialGradientBrush>
+
+                        </Rectangle.Fill>
+                    </Rectangle>
+                </Grid>
+                <!--Fin Barra 2-->
+                <!--Barra 3-->
+                <Grid 
+                        Margin="0,2,0,0"
+                        HorizontalOptions="Center">
+                    <Rectangle
+                            Fill="#00fff6"
+                            WidthRequest="16.09"
+                            HeightRequest="2.75"
+                            HorizontalOptions="Center"
+                            VerticalOptions="Center"
+                            />
+                    <Rectangle
+                            WidthRequest="18.48"
+                            HeightRequest="3.36112"
+                            HorizontalOptions="Center"
+                            VerticalOptions="Center"
+                            RadiusX="1.15"
+                            RadiusY="1.15"
+                            >
+                        <Rectangle.Fill>
+                            <RadialGradientBrush Center="0.5,0.5">
+                                <GradientStop
+                                        Color="Transparent"
+                                        Offset="0.6"
+                                        />
+                                <GradientStop
+                                        Color="Black"
+                                        Offset="0.9"    
+                                        />
+
+                            </RadialGradientBrush>
+
+                        </Rectangle.Fill>
+                    </Rectangle>
+                </Grid>
+                <!--Fin Barra 3-->
+
+                <!--Icono buscar-->
+                <Path
+                    Margin="0,3,0,0"
+                        HeightRequest="30"
+                        HorizontalOptions="Center"
+                        VerticalOptions="Center"
+                        Aspect="Uniform"
+                        Data="M44.78,110.69l.43-40a36,36,0,1,0-19.33-.22l-.44,40.06a9,9,0,0,0,8.92,9.12h1.3A9,9,0,0,0,44.78,110.69ZM15.48,14.06a29.95,29.95,0,1,1-1.42,42.32A29.95,29.95,0,0,1,15.48,14.06Z"
+                        >
+                    <Path.Fill>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                            <GradientStop Offset="0" Color="#b2fffc"/>
+                            <GradientStop Offset="0.23" Color="#00fff6"/>
+                            <GradientStop Offset="0.31" Color="#00faf5"/>
+                            <GradientStop Offset="0.41" Color="#00ebf4"/>
+                            <GradientStop Offset="0.51" Color="#00d2f1"/>
+                            <GradientStop Offset="0.62" Color="#00b0ed"/>
+                            <GradientStop Offset="0.74" Color="#0083e8"/>
+                            <GradientStop Offset="0.86" Color="#014de2"/>
+                            <GradientStop Offset="0.98" Color="#010edb"/>
+                            <GradientStop Offset="1" Color="#0101da"/>
+                        </LinearGradientBrush>
+                    </Path.Fill>
+                </Path>
+                <!--Fin de Icono  Buscar-->
+            </StackLayout>
+            <Grid.GestureRecognizers>
+                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+            </Grid.GestureRecognizers>
+
+        </Grid>
+
+    </ContentView.Content>
+</ContentView>

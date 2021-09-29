@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="App1.Views.AnimationViewPage"
+             
+             xmlns:xamanimations="clr-namespace:Xamanimation;assembly=Xamanimation">
+   <ContentPage.Content>
+        <Grid RowDefinitions="*,Auto,Auto" RowSpacing="0"> 
+            <Grid BackgroundColor="Green"/>
+         
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

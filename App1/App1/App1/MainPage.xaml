@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:components="clr-namespace:App1.components"
+             xmlns:skia="clr-namespace:SkiaSharp.Views.Forms;assembly=SkiaSharp.Views.Forms"
+             xmlns:error="clr-namespace:App1.components"
+             xmlns:prism="http://prismlibrary.com"
+           
+             x:Class="App1.MainPage">
+    <Grid BackgroundColor="#111125" ColumnDefinitions="*" RowDefinitions="Auto,*">
+        <Grid BackgroundColor="White" ColumnDefinitions="*,*"> 
+            <Label 
+                Text="Font testing" 
+                FontFamily="Times New Roman"
+                FontSize="25"
+                Margin="0,10,0,0"
+                HorizontalOptions="Center"/>
+            <Label 
+                Grid.Column="1"
+                Text="Font testing" 
+                FontFamily="Roboto-Medium-Italic"
+                FontSize="25"
+                Margin="0,10,0,0"
+                HorizontalOptions="Center"/>
+
+        </Grid>
+
+        <Grid 
+           Grid.Row="1"
+          RowDefinitions="*,Auto,Auto" 
+          ColumnDefinitions="*,*" 
+          VerticalOptions="Center" 
+          HorizontalOptions="Center">
+            <Button 
+                VerticalOptions="Center"
+                HorizontalOptions="Center" 
+                Text="GavetasLeftView"
+                Command="{prism:NavigateTo 'SearchView'}"/>
+            <Button 
+                Grid.Column="1"
+                VerticalOptions="Center"
+                HorizontalOptions="Center" 
+                Text="Go to Toolbar View"
+                Command="{prism:NavigateTo 'ToolbarView'}"/>
+            <Button 
+                Grid.Column="0"
+                Grid.Row="1"
+                VerticalOptions="Center"
+                HorizontalOptions="Center" 
+                Text="Go to Swipe View"
+                Command="{prism:NavigateTo 'SwipePage'}"/>
+            <Button 
+                Grid.Column="1"
+                Grid.Row="1"
+                VerticalOptions="Center"
+                HorizontalOptions="Center" 
+                Text="Skia components"
+                Command="{prism:NavigateTo 'SkiaComponentsView'}"/>
+            <Button 
+                Grid.Column="0"
+                Grid.Row="2"
+                VerticalOptions="Center"
+                HorizontalOptions="Center" 
+                Text="Animations"
+                Command="{prism:NavigateTo 'AnimationViewPage'}"/>
+            <Button 
+                Grid.Column="1"
+                Grid.Row="2"
+                VerticalOptions="Center"
+                HorizontalOptions="Center" 
+                Text="Filter Selection"
+                Command="{prism:NavigateTo 'DialogsView'}"/>
+           
+
+        </Grid>
+       
+
+    </Grid>
+
+</ContentPage>

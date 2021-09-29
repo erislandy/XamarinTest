@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="App1.components.Gavetas.CreateButtonUserControl">
+  <ContentView.Content>
+        <Grid 
+                HorizontalOptions="Start"
+                VerticalOptions="Start"
+                WidthRequest="118.743"
+                >
+            <Path
+                      HorizontalOptions="Center"
+                      Data="m 0 36.5857 l 15.7572 -36.5857 h 80.3598 l 15.7572 36.5857z">
+                <Path.Fill>
+                    <LinearGradientBrush StartPoint="0,0"  EndPoint="1,0">
+                        <GradientStop
+                                Color="#b2fffc"
+                                />
+                        <GradientStop
+                                Color="#00fff6"
+                                Offset="0.1"    
+                                />
+
+                        <GradientStop
+                                Color="#0101da"
+                                Offset="1"
+                                />
+                    </LinearGradientBrush>
+
+                </Path.Fill>
+            </Path>
+            <Path
+                        HorizontalOptions="Center"
+                        Margin="0,2.4944,0,0"
+                        Fill="#2e313b"
+                        Data="m 0 43.2377 l 15.1714 -43.2377 h 77.353 l 15.1714 43.2377"
+                        >
+
+            </Path>
+            <Grid
+                    Margin="0,7,0,0"
+                    VerticalOptions="Start"
+                    HorizontalOptions="Center"
+                     >
+                <Rectangle
+                        Aspect="UniformToFill"
+                        WidthRequest="18"
+                        HeightRequest="1.5"
+                        Fill="aqua"
+                        HorizontalOptions="Center"
+                        VerticalOptions="Center"
+                        RadiusX="1.6"
+                        RadiusY="1.6"
+                        />
+                <Rectangle
+                        Aspect="UniformToFill"
+                        WidthRequest="1.5"
+                        HeightRequest="18"
+                        Fill="aqua"
+                        HorizontalOptions="Center"
+                        VerticalOptions="Center"
+                        RadiusX="1.6"
+                        RadiusY="1.6"
+                        />
+                <Path
+                    Aspect="Uniform"
+                    WidthRequest="31"
+                    HeightRequest="31"
+                    Fill="aqua"
+                    VerticalOptions="Center"
+                        HorizontalOptions="Center"
+                    Data="M60.92,0a60.92,60.92,0,1,0,60.92,60.92A60.93,60.93,0,0,0,60.92,0Zm0,111.69a50.77,50.77,0,1,1,50.77-50.77A50.77,50.77,0,0,1,60.92,111.69Z"
+                    >
+
+                </Path>
+            </Grid>
+
+        </Grid>
+    </ContentView.Content>
+</ContentView>

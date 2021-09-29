@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="App1.components.Gavetas.UndoUserControl">
+  <ContentView.Content>
+        <Grid
+            VerticalOptions="End"
+                  HorizontalOptions="End"
+                  ColumnSpacing="0"
+                  RowSpacing="0">
+            <Ellipse
+                    WidthRequest="64.9"
+                    HeightRequest="64.9"
+                    VerticalOptions="CenterAndExpand"
+                    HorizontalOptions="CenterAndExpand">
+                <Ellipse.Fill>
+                    <LinearGradientBrush StartPoint="0,0"  EndPoint="1,0">
+                        <GradientStop
+                            Color="#b2fffc"
+                            />
+                        <GradientStop
+                            Color="#00fff6"
+                            Offset="0.1"    
+                            />
+
+                        <GradientStop
+                            Color="#0101da"
+                            Offset="1"
+                            />
+                    </LinearGradientBrush>
+                </Ellipse.Fill>
+            </Ellipse>
+            <Ellipse
+                    WidthRequest="61.7"
+                    HeightRequest="61.7"
+                    VerticalOptions="CenterAndExpand"
+                    HorizontalOptions="CenterAndExpand"
+                    Fill="#2e313b">
+
+            </Ellipse>
+            <Path
+                    WidthRequest="30"
+                    HeightRequest="30"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Center"
+                    Fill="#0bf5fc"
+                    Aspect="UniformToFill"
+                    Data="M4.39,88.35A7.26,7.26,0,1,1,18.3,84.18,54.14,54.14,0,1,0,33,29.31l14,3L0,61.63,11.76,7.55l8.6,13.85a68,68,0,0,1,30-18.5,68.62,68.62,0,1,1-46,85.45Z"
+                    >
+
+            </Path>
+            <Grid.GestureRecognizers>
+                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+            </Grid.GestureRecognizers>
+        </Grid>
+
+    </ContentView.Content>
+</ContentView>

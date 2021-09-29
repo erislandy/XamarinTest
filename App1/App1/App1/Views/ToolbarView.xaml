@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="App1.Views.ToolbarView"
+             xmlns:gavetas="clr-namespace:App1.components.Gavetas">
+    <ContentPage.Content>
+        <Grid
+            ColumnDefinitions="*,*"
+            RowDefinitions="Auto"
+            VerticalOptions="End" 
+              HorizontalOptions="FillAndExpand" 
+              Padding="0"
+              ColumnSpacing="0"
+            BackgroundColor="Green">
+            
+            <!--Rectangulo de fondo-->
+            <Grid
+                    Grid.ColumnSpan="2"
+                    HeightRequest="33.70"
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="EndAndExpand"
+                    ColumnDefinitions="*,*"
+                    BackgroundColor="#2e313b"
+                    >
+
+            </Grid>
+            <!--Fin del Rectangulo de fondo-->
+           
+
+            <!--Boton Perfil-->
+            <gavetas:PerfilButtonUserControl
+                Grid.Column="0"
+                />
+            <!--Fin de Boton Perfil-->
+
+            <!--Boton crear-->
+            <gavetas:CreateButtonUserControl
+                Margin="58,13,0,0"
+                />
+            <!--Fin de Boton Crear-->
+
+            <!--Boton Compartir-->
+            <gavetas:ShareButtonUserControl 
+                Grid.Column="1"
+                Margin="0,13,58,0"/>
+            <!--Fin del Boton Compartir-->
+            <!--Boton buscar-->
+            <gavetas:SearchButtomUserControl
+                
+                  Grid.ColumnSpan="2"
+                  SearchCommand="{Binding SearchCommand}"/>
+            <!--Fin del Boton buscar-->
+            <!--Botón deshacer-->
+            <gavetas:UndoUserControl Grid.Column="1" 
+                                     UndoButtomCommand="{Binding UndoCommand}"
+                                     />
+            <!--Fin del Botón deshacer-->
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

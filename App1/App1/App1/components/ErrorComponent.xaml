@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="App1.components.ErrorComponent">
+  <ContentView.Content>
+        <Frame  BackgroundColor="Red" CornerRadius="5" Padding="5" HorizontalOptions="Start">
+            <Label
+                x:Name="label"
+                FontSize="Micro" 
+                TextColor="White"
+                FontAttributes="Bold" 
+                HorizontalOptions="Start"/>
+
+        </Frame>
+    </ContentView.Content>
+</ContentView>

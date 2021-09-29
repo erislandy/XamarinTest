@@ -1,0 +1,153 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="App1.Dialogs.FilterSelection"
+              prism:DialogLayout.RelativeWidthRequest="0.75"
+              prism:DialogLayout.RelativeHeightRequest="0.5"
+              xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+              xmlns:prism="http://prismlibrary.com"
+              xmlns:local="clr-namespace:App1.Helper"
+             >
+  <ContentView.Content>
+        <pancake:PancakeView
+            CornerRadius="25,25,0,0"
+            >
+            <Grid BackgroundColor="White"
+                        RowDefinitions="Auto,*">
+
+                <Grid ColumnDefinitions="50,*"
+                  RowDefinitions="50"
+                  BackgroundColor="#0f0f28"
+                  VerticalOptions="CenterAndExpand"
+                  HorizontalOptions="FillAndExpand"
+                  >
+                    <Label
+                    WidthRequest="30"
+                    HeightRequest="30"
+                    VerticalOptions="CenterAndExpand"
+                    HorizontalOptions="CenterAndExpand"
+                    Text="\uf0b0"
+                    FontFamily="Font-Awesome-5-Free-Solid-900" 
+                    TextColor="White"/>
+                    <!--
+                <Path
+                   HeightRequest="50"
+                    WidthRequest="50"
+                    Aspect="UniformToFill"
+                    Data="M921,159C821.76,59.79,690.69,4,550.83,1.14V46.45c267.28,6,482.86,225.34,482.86,494.05s-215.58,488-482.86,494.05v45.31C690.69,1077,821.76,1021.21,921,922c101.9-101.89,158-237.37,158-381.48S1022.88,260.91,921,159Z"
+                    Fill="Blue"
+                    >
+
+                </Path>
+
+                -->
+
+                </Grid>
+                <CollectionView
+                 Grid.Row="1"
+                x:Name="elements"
+                ItemsSource="{Binding Elements}"
+                HorizontalScrollBarVisibility="Never"
+                SelectionMode="None"
+                BackgroundColor="Green"
+                VerticalOptions="CenterAndExpand"
+                HeightRequest="280"
+                
+                 
+                
+                >
+                    <CollectionView.ItemsLayout>
+                        <LinearItemsLayout ItemSpacing="2" Orientation="Vertical"/>
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <pancake:PancakeView
+                                HeightRequest="50"
+                                Margin="20,5,20,5"
+                                CornerRadius="25">
+                                    <Grid 
+                                  Padding="2,2,2,2"
+                                  ColumnDefinitions="50,*" 
+                                  >
+                                        <Grid.Background>
+                                            <LinearGradientBrush StartPoint="0,0.75"  EndPoint="1,0">
+                                                <GradientStop Offset="0" Color="#b1fffb"/>
+                                                <GradientStop Offset="0.1" Color="#00fff5"/>
+                                                <GradientStop Offset="0.19" Color="#00faf4"/>
+                                                <GradientStop Offset="0.3" Color="#00ebf3"/>
+                                                <GradientStop Offset="0.42" Color="#00d2f0"/>
+                                                <GradientStop Offset="0.55" Color="#00b0ec"/>
+                                                <GradientStop Offset="0.69" Color="#0083e7"/>
+                                                <GradientStop Offset="0.83" Color="#014de1"/>
+                                                <GradientStop Offset="0.97" Color="#010eda"/>
+                                                <GradientStop Offset="1" Color="#0101d9"/>
+                                            </LinearGradientBrush>
+                                        </Grid.Background>
+                                        <BoxView
+                                    Grid.ColumnSpan="2"
+                                    CornerRadius="23"
+                                    VerticalOptions="CenterAndExpand"
+                                    HorizontalOptions="FillAndExpand"
+                                    HeightRequest="46"
+                                    BackgroundColor="#3e424d"
+                                    >
+                                        </BoxView>
+                                        <Grid
+                                    VerticalOptions="CenterAndExpand"
+                                    HorizontalOptions="CenterAndExpand"
+                                    >
+                                            <Ellipse
+                                            StrokeThickness="2"
+                                            
+                                            WidthRequest="40"
+                                            HeightRequest="40"
+                                            Fill="#2d3036"
+                                            >
+
+                                                <Ellipse.Stroke>
+                                                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                                                        <GradientStop Color="#b2fffc"/>
+                                                        <GradientStop Color="#00fff6" Offset="0.1"/>
+                                                        <GradientStop Color="#0101da" Offset="1"/>
+
+                                                    </LinearGradientBrush>
+                                                </Ellipse.Stroke>
+                                            </Ellipse>
+                                            <Label Text="{Binding Icon}"
+                                           FontFamily="Font-Awesome-5-Free-Regular-400"
+                                           TextColor="White"
+                                           FontSize="16"
+                                           VerticalOptions="CenterAndExpand"
+                                           HorizontalOptions="CenterAndExpand"
+                                           />
+                                        </Grid>
+
+                                        <Label
+                                    Grid.Column="1"
+                                    VerticalOptions="CenterAndExpand" 
+                                    HorizontalOptions="StartAndExpand"
+                                    TextColor="#8FD1DF"
+                                    FontFamily="Roboto-Bold"
+                                    FontSize="17"
+                                    Text="{Binding Element}"/>
+
+                                    </Grid>
+                                    <pancake:PancakeView.GestureRecognizers>
+                                        <TapGestureRecognizer
+                                            Command="{Binding Path=BindingContext.SelectedCommand, Source={x:Reference elements}}"
+                                            CommandParameter="{Binding .}"
+                                            NumberOfTapsRequired="1" />
+
+                                    </pancake:PancakeView.GestureRecognizers>
+                                </pancake:PancakeView>
+
+                            </Grid>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </Grid>
+
+        </pancake:PancakeView>
+    </ContentView.Content>
+</ContentView>

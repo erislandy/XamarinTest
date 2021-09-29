@@ -1,0 +1,368 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="App1.components.Gavetas.GavetasRightUserControl">
+  <ContentView.Content>
+        <Grid 
+            Padding="0"
+            RowDefinitions="*,Auto" 
+            ColumnDefinitions="*,54.13" 
+            VerticalOptions="CenterAndExpand" 
+            HorizontalOptions="FillAndExpand"
+            RowSpacing="0"
+            ColumnSpacing="0"
+            >
+         
+            <!--Circulo exterior y alo de luz-->
+            <Grid Grid.Column="1">
+                <Ellipse
+                    WidthRequest="54.13"
+                    HeightRequest="54.13"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Center"
+                    >
+                    <Ellipse.Fill>
+                        <LinearGradientBrush StartPoint="1,0"  EndPoint="0,0.75">
+                            <GradientStop Offset="0.19" Color="#2e313b"/>
+                            <GradientStop Offset="0.32" Color="#2b2e37"/>
+                            <GradientStop Offset="0.45" Color="#22242b"/>
+                            <GradientStop Offset="0.57" Color="#121418"/>
+                            <GradientStop Offset="0.68" Color="Black"/>
+                        </LinearGradientBrush>
+                    </Ellipse.Fill>
+                </Ellipse>
+                <Ellipse
+                     WidthRequest="42.8"
+                    HeightRequest="42.8"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Center"
+                    >
+                    <Ellipse.Fill>
+                        <LinearGradientBrush StartPoint="1,0.75"  EndPoint="0,0">
+                            <GradientStop Offset="0" Color="#b1fffb"/>
+                            <GradientStop Offset="0.1" Color="#00fff5"/>
+                            <GradientStop Offset="0.19" Color="#00faf4"/>
+                            <GradientStop Offset="0.3" Color="#00ebf3"/>
+                            <GradientStop Offset="0.42" Color="#00d2f0"/>
+                            <GradientStop Offset="0.55" Color="#00b0ec"/>
+                            <GradientStop Offset="0.69" Color="#0083e7"/>
+                            <GradientStop Offset="0.83" Color="#014de1"/>
+                            <GradientStop Offset="0.97" Color="#010eda"/>
+                            <GradientStop Offset="1" Color="#0101d9"/>
+                        </LinearGradientBrush>
+                    </Ellipse.Fill>
+                </Ellipse>
+            </Grid>
+            <!--Fin del Circulo exterior y alo de luz-->
+            
+            <!-- Barras horizontales-->
+            <Grid Grid.Row="1"
+                  Grid.Column="0"
+                  Grid.ColumnSpan="2"
+                  Margin="0,-3,40,0"
+                  VerticalOptions="Start"
+                  HorizontalOptions="End"
+                  >
+                <Path
+                
+                VerticalOptions="StartAndExpand"
+                HorizontalOptions="StartAndExpand"
+                Data="m 0 0 h 131.99 l 4 19.65 h -131.99z">
+                    <Path.Fill>
+                        <RadialGradientBrush Center="0.5,0.5">
+                            <GradientStop Color="#b9fff6" Offset="0.1"/>
+                            <GradientStop Color="#01c1da" Offset="1"/>
+
+
+                        </RadialGradientBrush>
+                    </Path.Fill>
+                </Path>
+
+                <Path
+                
+                VerticalOptions="StartAndExpand"
+                HorizontalOptions="StartAndExpand"
+                Margin="1,1,0,0"
+                Data="m 1 0 h 128.91 l 3 17.53 h -128.91z">
+                    <Path.Fill>
+                        <LinearGradientBrush StartPoint="0,1"  EndPoint="0,0">
+                            <GradientStop Offset="0" Color="#b1fffb"/>
+                            <GradientStop Offset="0.1" Color="#00fff5"/>
+                            <GradientStop Offset="0.19" Color="#00faf4"/>
+                            <GradientStop Offset="0.3" Color="#00ebf3"/>
+                            <GradientStop Offset="0.42" Color="#00d2f0"/>
+                            <GradientStop Offset="0.55" Color="#00b0ec"/>
+                            <GradientStop Offset="0.69" Color="#0083e7"/>
+                            <GradientStop Offset="0.83" Color="#014de1"/>
+                            <GradientStop Offset="0.97" Color="#010eda"/>
+                            <GradientStop Offset="1" Color="#0101d9"/>
+                        </LinearGradientBrush>
+                    </Path.Fill>
+                </Path>
+
+                <Label 
+                    x:Name="descriptionValue"
+                    FontFamily="Roboto-Bold"
+                    FontSize="13"
+                    Text="POPULARES"
+                    TextColor="Black"
+                    FontAttributes="Bold" 
+                    VerticalOptions="Center" 
+                    HorizontalOptions="Center"
+                    HorizontalTextAlignment="Center"/>
+            </Grid>
+            <!--Final Barras Horizontales-->
+
+            <!--Paralelogramos, zurco y alo de luz-->
+            <Grid 
+                WidthRequest="165.43"
+                VerticalOptions="StartAndExpand"
+                HorizontalOptions="EndAndExpand"
+                Margin="0,27.13,22.85,0"
+                Grid.ColumnSpan="2">
+
+                <Path 
+                  Data="m 0 0 h 155.81 l 5.62 24.4 h -155.81z">
+                    <Path.Fill>
+                        <LinearGradientBrush StartPoint="1,0"  EndPoint="0,0">
+                            <GradientStop Offset="0.08" Color="#5f667a"/>
+                            <GradientStop Offset="0.19" Color="#565c6e"/>
+                            <GradientStop Offset="0.39" Color="#3e424d"/>
+                            <GradientStop Offset="0.51" Color="#2d3036"/>
+                            <GradientStop Offset="0.96" Color="#c3d4eb"/>
+                        </LinearGradientBrush>
+                    </Path.Fill>
+                </Path>
+                <Path
+                  Margin="1.12,1.12,0,0"
+                  Data="m 0 0 h 152.5 l 5.62 22.15 h -152.5z">
+                    <Path.Fill>
+                        <LinearGradientBrush StartPoint="0,0"  EndPoint="0,1">
+                            <GradientStop Offset="0.19" Color="#2e313b"/>
+                            <GradientStop Offset="0.32" Color="#2b2e37"/>
+                            <GradientStop Offset="0.45" Color="#2c2f39"/>
+                            <GradientStop Offset="1" Color="#1e2027"/>
+                        </LinearGradientBrush>
+                    </Path.Fill>
+
+                </Path>
+
+                <Path 
+                  HorizontalOptions="EndAndExpand"
+                  Fill="black"
+                  Margin="0,12.43,3.82,0"
+                  Data="m 0 7.49 v -1 h 121.52 l -1.68 -6.49 h 11.81 v 1.0 h -10.52 l 1 6.49z">
+                </Path>
+
+                <Rectangle
+                Margin="50,16.5,0,0"
+                Grid.ColumnSpan="1"
+                VerticalOptions="Center"
+                HorizontalOptions="StartAndExpand"
+                WidthRequest="80"
+                HeightRequest="1.5"
+                >
+                    <Rectangle.Fill>
+                        <RadialGradientBrush Center="0.5,0.5">
+                            <GradientStop Color="#b2fffc"/>
+                            <GradientStop Color="Black" Offset="1"/>
+                        </RadialGradientBrush>
+                    </Rectangle.Fill>
+                </Rectangle>
+            </Grid>
+            <!--Fin de Paralelogramos, zurco y alo de luz-->
+           
+            <!--Circulos Internos y Boton-->
+            <Grid Grid.Column="1"
+                  VerticalOptions="FillAndExpand"
+                  HorizontalOptions="FillAndExpand"
+                  RowSpacing="0"
+                  Padding="0,0,0,0"
+                  ColumnSpacing="0">
+                  <Ellipse
+                    
+                    Margin="0"
+                    WidthRequest="37.52"
+                    HeightRequest="37.52"
+                    VerticalOptions="CenterAndExpand"
+                    HorizontalOptions="CenterAndExpand"
+                    >
+                    <Ellipse.Fill>
+                        <LinearGradientBrush StartPoint="0.75,1"  EndPoint="0,0">
+                            <GradientStop Offset="0.08" Color="#5f667a"/>
+                            <GradientStop Offset="0.19" Color="#565c6e"/>
+                            <GradientStop Offset="0.39" Color="#3e424d"/>
+                            <GradientStop Offset="0.51" Color="#2d3036"/>
+                            <GradientStop Offset="0.96" Color="#c3d4eb"/>
+                        </LinearGradientBrush>
+
+                    </Ellipse.Fill>
+                </Ellipse>
+                <!--Sombra-->
+                <Ellipse
+                    Margin="0"
+                    WidthRequest="35.52"
+                    HeightRequest="35.52"
+                    VerticalOptions="CenterAndExpand"
+                    HorizontalOptions="CenterAndExpand"
+                    Opacity="1"
+                    >
+                    <Ellipse.Fill>
+                        <RadialGradientBrush Center="0.5,0.5" Radius="0.4">
+                            <GradientStop Offset="0.9" Color="#ffffff"/>
+                            <GradientStop Offset="1" Color="Black"/>
+
+
+                        </RadialGradientBrush>
+
+                    </Ellipse.Fill>
+                </Ellipse>
+                <!--Fin Sombra-->
+                <Ellipse
+                  WidthRequest="31.31"
+                    HeightRequest="31.31"
+                    VerticalOptions="CenterAndExpand"
+                    HorizontalOptions="CenterAndExpand">
+                    <Ellipse.Fill>
+                        <LinearGradientBrush StartPoint="1,1"  EndPoint="0,0.3">
+                            <GradientStop Offset="0.08" Color="#5f667a"/>
+                            <GradientStop Offset="0.19" Color="#565c6e"/>
+                            <GradientStop Offset="0.39" Color="#3e424d"/>
+                            <GradientStop Offset="0.51" Color="#2d3036"/>
+                            <GradientStop Offset="0.96" Color="#c3d4eb"/>
+                        </LinearGradientBrush>
+                    </Ellipse.Fill>
+                </Ellipse>
+                
+                <Ellipse
+                      WidthRequest="29.61"
+                    HeightRequest="29.61"
+                    VerticalOptions="CenterAndExpand"
+                    HorizontalOptions="CenterAndExpand"
+                    >
+
+                    <Ellipse.Fill>
+                        <LinearGradientBrush StartPoint="0,0"  EndPoint="1,0.7">
+                            <GradientStop Offset="0.01" Color="#424654"/>
+                            <GradientStop Offset="0.16" Color="#3f4350"/>
+                            <GradientStop Offset="0.31" Color="#363944"/>
+                            <GradientStop Offset="0.45" Color="#262830"/>
+                            <GradientStop Offset="0.6" Color="#101115"/>
+                            <GradientStop Offset="0.69" Color="Black"/>
+
+                        </LinearGradientBrush>
+
+                    </Ellipse.Fill>              
+                </Ellipse>
+                <BoxView
+                    Margin="0,0.2,0.1,0"
+                    WidthRequest="32"
+                    HeightRequest="32"
+                    VerticalOptions="CenterAndExpand"
+                    HorizontalOptions="CenterAndExpand"
+                    CornerRadius="15"
+                    Opacity="0.5"
+                    BackgroundColor="#70737c"
+                   
+                    >
+
+                </BoxView>
+
+                <Label 
+                 x:Name="lblButton"
+                 HorizontalOptions="CenterAndExpand"
+                 VerticalOptions="CenterAndExpand"
+                 HorizontalTextAlignment="Center"
+                 VerticalTextAlignment="Center"
+                 FontFamily="Roboto-Bold-Italic"
+                 TextColor="#02e3f9"
+                 FontSize="25"
+                       />
+                <Button x:Name="btn"
+                    Margin="0,0.2,0.1,0"
+                    WidthRequest="45"
+                    HeightRequest="45"
+                    VerticalOptions="CenterAndExpand"
+                    HorizontalOptions="CenterAndExpand"
+                    CornerRadius="15"
+                    Opacity="0"/>
+
+            </Grid> 
+            <!--Fin de Circulos Internos y Boton-->
+
+            <!--Label Title-->
+            <Grid  Margin="26,22,30,0" Grid.Row="0"
+                       HorizontalOptions="FillAndExpand"
+                Grid.Column="0"
+                  Grid.ColumnSpan="2"
+                  >
+               
+                <Label
+                Text="DJ"
+                x:Name="descriptionTitle" 
+                TextColor="#8FD1DF"
+                FontFamily="Roboto-Bold"
+                FontSize="17"
+                 HorizontalOptions="Center"
+                HorizontalTextAlignment="Start"
+                VerticalOptions="Center"
+                LineBreakMode="TailTruncation"
+                  />
+            </Grid>
+            <!--Fin label Title-->
+            
+            <!--Barra Verticale-->
+
+            <Grid 
+                x:Name="verticalSide"
+              Margin="0,23.3,102,0"
+                 VerticalOptions="StartAndExpand" 
+                HorizontalOptions="EndAndExpand"
+                Grid.Row="0"
+                Grid.Column="0">
+                <Path
+               VerticalOptions="EndAndExpand"
+                HorizontalOptions="EndAndExpand"
+                 Data="m 0 0 h 11.91 l 6.4 28.23 h -11.91z">
+
+                    <Path.Fill>
+                        <RadialGradientBrush Center="0.5,0.5">
+                            <GradientStop
+                        Color="#b9fff6"
+                        />
+                            <GradientStop
+                        Color="#01c1da"
+                        Offset="1.0"
+                        />
+                        </RadialGradientBrush>
+                    </Path.Fill>
+
+
+                </Path>
+
+                <Path
+                
+                VerticalOptions="StartAndExpand"
+                HorizontalOptions="StartAndExpand"
+                Aspect="UniformToFill"
+                Margin="1,1,0,0"
+                Data="m 0 0 h 9.78 l 6.02 25.65 h -9.78z">
+                    <Path.Fill>
+                        <LinearGradientBrush StartPoint="1,0" EndPoint="0,1">
+                            <GradientStop Color="#b2fffc"/>
+                            <GradientStop Color="#00fff6" Offset="0.1"/>
+                            <GradientStop Color="#0101da" Offset="1"/>
+
+                        </LinearGradientBrush>
+                    </Path.Fill>
+                </Path>
+                <Grid.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                </Grid.GestureRecognizers>
+            </Grid>
+            <!--Final Barra Vertical-->
+
+        
+        </Grid>
+  </ContentView.Content>
+</ContentView>
