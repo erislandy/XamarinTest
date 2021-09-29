@@ -4,6 +4,7 @@
              x:Class="App1.components.Gavetas.GavetasRightUserControl">
   <ContentView.Content>
         <Grid 
+            x:Name="drContainer"
             Padding="0"
             RowDefinitions="*,Auto" 
             ColumnDefinitions="*,54.13" 
@@ -12,6 +13,60 @@
             RowSpacing="0"
             ColumnSpacing="0"
             >
+            <VisualStateManager.VisualStateGroups>
+                <VisualStateGroup Name="DrawerStates">
+                    <VisualState Name="Normal">
+                        
+                    </VisualState>
+                    <VisualState Name="Selected">
+                        <VisualState.Setters>
+                            <Setter
+                                TargetName="lblButton"
+                                Property="Label.TextColor"
+                                Value="Lime"
+                                />
+                            <Setter TargetName="horizontalBarBack"
+                                    Property="Path.Opacity"
+                                    Value="0"/>
+                            <Setter 
+                                TargetName="horizontalBarFront"
+                                Property="Path.Fill">
+                                <Setter.Value>
+                                    <LinearGradientBrush StartPoint="0,1"  EndPoint="0,0">
+                                        <GradientStop Offset="0" Color="#c5ffb7"/>
+                                        <GradientStop Offset="0.1" Color="#55ffbf"/>
+                                        <GradientStop Offset="0.21" Color="#53feba"/>
+                                        <GradientStop Offset="0.34" Color="#4cfcab"/>
+                                        <GradientStop Offset="0.49" Color="#41f992"/>
+                                        <GradientStop Offset="0.64" Color="#32f570"/>
+                                        <GradientStop Offset="0.8" Color="#1eef44"/>
+                                        <GradientStop Offset="0.96" Color="#07e90e"/>
+                                        <GradientStop Offset="1" Color="#01e701"/>
+                                    </LinearGradientBrush>
+                                </Setter.Value>
+                            </Setter>
+                            <Setter TargetName="rinLight"
+                                    Property="Ellipse.Fill">
+                                <Setter.Value>
+                                    <LinearGradientBrush StartPoint="1,0.75"  EndPoint="0,0">
+                                        <GradientStop Offset="0" Color="#c5ffb7"/>
+                                        <GradientStop Offset="0.1" Color="#55ffbf"/>
+                                        <GradientStop Offset="0.21" Color="#53feba"/>
+                                        <GradientStop Offset="0.34" Color="#4cfcab"/>
+                                        <GradientStop Offset="0.49" Color="#41f992"/>
+                                        <GradientStop Offset="0.64" Color="#32f570"/>
+                                        <GradientStop Offset="0.8" Color="#1eef44"/>
+                                        <GradientStop Offset="0.96" Color="#07e90e"/>
+                                        <GradientStop Offset="1" Color="#01e701"/>
+                                    </LinearGradientBrush>
+
+                                </Setter.Value>
+                            </Setter>
+                        </VisualState.Setters>
+                    </VisualState>
+
+                </VisualStateGroup>
+            </VisualStateManager.VisualStateGroups>
          
             <!--Circulo exterior y alo de luz-->
             <Grid Grid.Column="1">
@@ -32,6 +87,7 @@
                     </Ellipse.Fill>
                 </Ellipse>
                 <Ellipse
+                    x:Name="rinLight"
                      WidthRequest="42.8"
                     HeightRequest="42.8"
                     VerticalOptions="Center"
@@ -56,7 +112,8 @@
             <!--Fin del Circulo exterior y alo de luz-->
             
             <!-- Barras horizontales-->
-            <Grid Grid.Row="1"
+            <Grid 
+                Grid.Row="1"
                   Grid.Column="0"
                   Grid.ColumnSpan="2"
                   Margin="0,-3,40,0"
@@ -64,7 +121,7 @@
                   HorizontalOptions="End"
                   >
                 <Path
-                
+                x:Name="horizontalBarBack"
                 VerticalOptions="StartAndExpand"
                 HorizontalOptions="StartAndExpand"
                 Data="m 0 0 h 131.99 l 4 19.65 h -131.99z">
@@ -79,7 +136,7 @@
                 </Path>
 
                 <Path
-                
+                x:Name="horizontalBarFront"
                 VerticalOptions="StartAndExpand"
                 HorizontalOptions="StartAndExpand"
                 Margin="1,1,0,0"

@@ -54,20 +54,23 @@
                     DescriptionValue="ARTISTAS"
                     DescriptionButton="{Binding RightValue}"
                     MoveVerticalSide="{Binding MoveLeftSide}"
+                    DrawerState="{Binding DrawerState}"
+                    
                     
               
                 />
             </Grid>
+
+
            
-            
-            
             <Button 
                 Grid.Row="2"
                 Grid.ColumnSpan="3"
                 Text="Clear All" 
                 WidthRequest="120"
                 HorizontalOptions="Center"
-                Command="{Binding ClearAllCommand}"></Button>
+                
+                Command="{Binding ChangeState}"></Button>
 
         </Grid>
 

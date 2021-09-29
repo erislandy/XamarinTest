@@ -14,10 +14,13 @@ namespace App1.ViewModels
         private string _leftValue;
         private string _rightValue;
         private bool _moveLeftSide;
+        private string _drawerState;
         public SearchViewModel()
         {
             DescriptionButton = "8";
             _rightValue = "";
+            DrawerState = "Normal";
+            RightValue = "6";
         }
         
         public ICommand ClearAllCommand
@@ -34,6 +37,15 @@ namespace App1.ViewModels
                 LeftValue = "Nov 15,2021";
             }); 
             
+        }
+
+        public ICommand ChangeState
+        {
+            get => new DelegateCommand(()=> {
+
+                
+                DrawerState = DrawerState == "Selected" ? "Normal" : "Selected";
+            });
         }
         public ICommand RightCommand
         {
@@ -53,6 +65,11 @@ namespace App1.ViewModels
         {
             get => _descriptionTitle;
             set => SetProperty(ref _descriptionTitle, value);
+        }
+        public string DrawerState
+        {
+            get => _drawerState;
+            set => SetProperty(ref _drawerState, value);
         }
 
         public string DescriptionButton {

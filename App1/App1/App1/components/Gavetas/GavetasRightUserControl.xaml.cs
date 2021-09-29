@@ -13,6 +13,15 @@ namespace App1.components.Gavetas
     public partial class GavetasRightUserControl : ContentView
     {
         #region Bindable Property Declarations
+        public static readonly BindableProperty DrawerStateProperty = BindableProperty.Create(
+                                                           "DrawerState",
+                                                           typeof(string),
+                                                           typeof(GavetasRightUserControl),
+                                                           string.Empty,
+                                                          propertyChanged: OnDrawerStateChanged,
+                                                          defaultBindingMode: BindingMode.TwoWay);
+
+
         public static readonly BindableProperty DescriptionButtonProperty = BindableProperty.Create(
                                                             "DescriptionButton",
                                                             typeof(string),
@@ -62,7 +71,7 @@ namespace App1.components.Gavetas
         {
             InitializeComponent();
             this.btn.Clicked += Clicked_Command;
-            
+          
         }
 
         #region Properties
@@ -95,6 +104,15 @@ namespace App1.components.Gavetas
                 SetValue(DescriptionButtonProperty, value);
             }
         }
+        public string DrawerState
+        {
+            get { return (string)GetValue(DrawerStateProperty); }
+            set
+            {
+                VisualStateManager.GoToState(this.drContainer, value);
+                SetValue(DrawerStateProperty, value);
+            }
+        }
         public string Handle
         {
             get { return (string)GetValue(HandleProperty); }
@@ -113,6 +131,7 @@ namespace App1.components.Gavetas
         {
             TapCommand?.Execute(Handle);
         }
+       
 
         static void OnDescriptionTitleChanged(BindableObject bindable, object oldValue, object newValue)
         {
@@ -130,6 +149,9 @@ namespace App1.components.Gavetas
             }
         }
 
+        static void OnDrawerStateChanged(BindableObject bindable, object oldValue, object newValue) {
+            (bindable as GavetasRightUserControl).DrawerState = newValue as string;
+        }
         static void OnDescriptionValueChanged(BindableObject bindable, object oldValue, object newValue)
         {
             (bindable as GavetasRightUserControl).descriptionValue.Text = newValue as string;
