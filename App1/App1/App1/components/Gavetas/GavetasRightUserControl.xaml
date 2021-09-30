@@ -236,7 +236,17 @@
                   RowSpacing="0"
                   Padding="0,0,0,0"
                   ColumnSpacing="0">
-                  <Ellipse
+                <Grid.GestureRecognizers>
+                    <TapGestureRecognizer
+                            Tapped="DoubleTappedRecognizer"
+                            NumberOfTapsRequired="2"
+                            />
+                    <TapGestureRecognizer
+                            Tapped="OneTappedRecognizer"
+                            NumberOfTapsRequired="1"
+                            />
+                </Grid.GestureRecognizers>
+                <Ellipse
                     
                     Margin="0"
                     WidthRequest="37.52"
@@ -334,15 +344,10 @@
                  FontFamily="Roboto-Bold-Italic"
                  TextColor="#02e3f9"
                  FontSize="25"
-                       />
-                <Button x:Name="btn"
-                    Margin="0,0.2,0.1,0"
-                    WidthRequest="45"
-                    HeightRequest="45"
-                    VerticalOptions="CenterAndExpand"
-                    HorizontalOptions="CenterAndExpand"
-                    CornerRadius="15"
-                    Opacity="0"/>
+                       >
+                 
+                </Label>
+              
 
             </Grid> 
             <!--Fin de Circulos Internos y Boton-->

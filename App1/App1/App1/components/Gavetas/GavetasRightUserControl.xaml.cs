@@ -70,8 +70,7 @@ namespace App1.components.Gavetas
         public GavetasRightUserControl()
         {
             InitializeComponent();
-            this.btn.Clicked += Clicked_Command;
-          
+            
         }
 
         #region Properties
@@ -127,11 +126,15 @@ namespace App1.components.Gavetas
         #endregion
 
         #region Private Methods
-        private void Clicked_Command(object sender, EventArgs e)
+        void DoubleTappedRecognizer(object sender, EventArgs e)
+        {
+            DrawerState = DrawerState == "Selected" ? "Normal" : "Selected";
+        }
+        void OneTappedRecognizer(object sender, EventArgs e)
         {
             TapCommand?.Execute(Handle);
         }
-       
+
 
         static void OnDescriptionTitleChanged(BindableObject bindable, object oldValue, object newValue)
         {
