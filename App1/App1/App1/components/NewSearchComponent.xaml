@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="App1.components.NewSearchComponent"
+             xmlns:pacnkake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+             xmlns:shadows="clr-namespace:Sharpnado.Shades;assembly=Sharpnado.Shadows">
+
+    <ContentView.Content>
+        <shadows:Shadows 
+                CornerRadius="27" 
+                Shades="{shadows:SingleShade BlurRadius=10, Offset='0,4', 
+                Opacity=0.75, Color=Cyan}"
+                >
+            <pacnkake:PancakeView 
+                    x:Name="searchComponent"
+                    VerticalOptions="CenterAndExpand" 
+                    HorizontalOptions="EndAndExpand" CornerRadius="27.3"
+                    BackgroundColor="#0f0f28"
+                    HeightRequest="54.6"
+                    WidthRequest="54.6"
+                    >
+                <VisualStateManager.VisualStateGroups>
+                    <VisualStateGroup
+                            Name="SearchResize">
+                        <VisualState Name="Compressed"/>
+                        <VisualState Name="Expanded">
+                            <VisualState.Setters>
+                                <Setter
+                                        Property="HorizontalOptions"
+                                        Value="FillAndExpand"/>
+                                <Setter
+                                        TargetName="containerSearch"
+                                        Property="Grid.HorizontalOptions"
+                                        Value="EndAndExpand"/>
+                                <Setter
+                                    TargetName="entrySearch"
+                                    Property="Entry.IsVisible"
+                                    Value="true"/>
+
+                            </VisualState.Setters>
+                        </VisualState>
+                        <VisualState Name="CompressedSearch">
+                            <VisualState.Setters>
+                                <Setter
+                                    Property="BackgroundColor"
+                                    Value="Aqua"/>
+                                <Setter 
+                                    TargetName="searchPath"
+                                    Property="Path.Fill"
+                                    Value="#0f0f28"/>
+                                
+                            </VisualState.Setters>
+                        </VisualState>
+                    </VisualStateGroup>
+                </VisualStateManager.VisualStateGroups>
+
+                <Grid 
+                          x:Name="containerSearch"
+                          VerticalOptions="CenterAndExpand"
+                          HorizontalOptions="CenterAndExpand"
+                          ColumnDefinitions="*,Auto"
+                          ColumnSpacing="0"
+                    >
+                    
+                    <Path
+                        x:Name="searchPath"
+                        Grid.Column="1"
+                        Fill="Aqua"
+                        Aspect="Uniform"
+                        HeightRequest="24"
+                        WidthRequest="53"
+                        VerticalOptions="CenterAndExpand"
+                        HorizontalOptions="CenterAndExpand"
+                        Data="M9.93,9.93A33.89,33.89,0,0,0,56.21,59.4l1.28,1.28a4.52,4.52,0,0,0,1.17,4.37L78,84.39A4.52,4.52,0,0,0,84.39,78L65.05,58.66a4.52,4.52,0,0,0-4.37-1.17L59.4,56.21A33.89,33.89,0,0,0,9.93,9.93ZM61,33.89A27.11,27.11,0,0,1,14.72,53.06,27.11,27.11,0,0,1,53.06,14.72,26.9,26.9,0,0,1,61,33.89Z"/>
+                    <Entry
+                        x:Name="entrySearch"
+                        Margin="10,0,0,0"
+                        Grid.Column="0"
+                        Placeholder="Introduzca los términos de búsqueda"
+                        PlaceholderColor="#323850"
+                        TextColor="#8accda"
+                        FontFamily="Roboto-Italic"
+                        IsVisible="false"
+                        >
+
+                    </Entry>
+                    <Grid.GestureRecognizers>
+                        <TapGestureRecognizer
+                                Tapped="TapGestureRecognizer_Tapped"
+                                NumberOfTapsRequired="1"/>
+                    </Grid.GestureRecognizers>
+                </Grid>
+
+            </pacnkake:PancakeView>
+        </shadows:Shadows>
+
+    </ContentView.Content>
+</ContentView>

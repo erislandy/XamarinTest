@@ -22,8 +22,13 @@
                         <VisualState.Setters>
                             <Setter
                                 TargetName="lblButton"
-                                Property="Label.TextColor"
-                                Value="Lime"
+                                Property="Label.IsVisible"
+                                Value="false"
+                                />
+                            <Setter
+                                TargetName="iconButton"
+                                Property="Label.IsVisible"
+                                Value="true"
                                 />
                             <Setter TargetName="horizontalBarBack"
                                     Property="Path.Opacity"
@@ -344,10 +349,22 @@
                  FontFamily="Roboto-Bold-Italic"
                  TextColor="#02e3f9"
                  FontSize="25"
-                       >
+                 IsVisible="true"      >
                  
                 </Label>
-              
+                <Label 
+                x:Name="iconButton"
+                 HorizontalOptions="CenterAndExpand"
+                 VerticalOptions="CenterAndExpand"
+                 HorizontalTextAlignment="Center"
+                 VerticalTextAlignment="Center"
+                 FontFamily="Font-Awesome-5-Free-Solid-900"
+                 TextColor="Lime"
+                 FontSize="25"
+                 Text="\uf0b0"
+                 IsVisible="false"      >
+
+                </Label>
 
             </Grid> 
             <!--Fin de Circulos Internos y Boton-->

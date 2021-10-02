@@ -27,7 +27,7 @@
 
         <Grid 
            Grid.Row="1"
-          RowDefinitions="*,Auto,Auto" 
+          RowDefinitions="*,Auto,Auto,Auto" 
           ColumnDefinitions="*,*" 
           VerticalOptions="Center" 
           HorizontalOptions="Center">
@@ -70,6 +70,13 @@
                 HorizontalOptions="Center" 
                 Text="Filter Selection"
                 Command="{prism:NavigateTo 'DialogsView'}"/>
+            <Button 
+                Grid.Column="0"
+                Grid.Row="3"
+                VerticalOptions="Center"
+                HorizontalOptions="Center" 
+                Text="Elements Map"
+                Command="{prism:NavigateTo 'MapElementsView'}"/>
            
 
         </Grid>

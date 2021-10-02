@@ -31,7 +31,7 @@ namespace App1
             containerRegistry.RegisterForNavigation<AnimationViewPage>();
             containerRegistry.RegisterForNavigation<DialogsView,DialogsViewModel>();
             containerRegistry.RegisterDialog<FilterSelection, FilterSelectionViewModel>("filterDialog");
-
+            containerRegistry.RegisterForNavigation<MapElementsView, MapsElementsViewModel>();
 
             //    containerRegistry.RegisterForNavigation<SwipePage, SwipePageViewModel>();
 
