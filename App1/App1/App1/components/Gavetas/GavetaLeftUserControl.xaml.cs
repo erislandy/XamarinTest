@@ -29,7 +29,8 @@ namespace App1.components.Gavetas
                                                                typeof(string),
                                                                typeof(GavetaLeftUserControl),
                                                                string.Empty,
-                                                               propertyChanged: OnDescriptionTitleChanged);
+                                                               propertyChanged: OnDescriptionTitleChanged,
+                                                               defaultBindingMode: BindingMode.TwoWay);
         
         public static readonly BindableProperty DescriptionValueProperty = BindableProperty.Create(
                                                                "DescriptionValue",
@@ -63,7 +64,11 @@ namespace App1.components.Gavetas
         public GavetaLeftUserControl()
         {
             InitializeComponent();
-          //  this.btn.Clicked += Clicked_Command;
+            this.btn.Clicked += Clicked_Command;
+            this.datePicker.Unfocused += (sender, e) => {
+
+               DescriptionTitle =  (sender as Picker).SelectedItem.ToString();
+            };
 
         }
         #endregion
@@ -108,12 +113,14 @@ namespace App1.components.Gavetas
         #region Private Methods
         private void Clicked_Command(object sender, EventArgs e)
         {
-            TapCommand?.Execute(null);
+            //TapCommand?.Execute(null);
+          // datePicker.IsVisible = true;
+            datePicker.Focus();
         }
 
         static void OnDescriptionTitleChanged(BindableObject bindable, object oldValue, object newValue)
         {
-           // (bindable as GavetaLeftUserControl).descriptionTitle.Text = newValue as string;
+            (bindable as GavetaLeftUserControl).descriptionTitle.Text = newValue as string;
         }
         static void OnDescriptionButtonChanged(BindableObject bindable, object oldValue, object newValue)
         {

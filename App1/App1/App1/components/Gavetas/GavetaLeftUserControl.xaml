@@ -266,6 +266,17 @@
                     </Ellipse.Fill>
 
                 </Ellipse>
+              
+                <Label
+                 x:Name="lblButton"
+                 HorizontalOptions="FillAndExpand"
+                 VerticalOptions="FillAndExpand"
+                 HorizontalTextAlignment="Center"
+                 VerticalTextAlignment="Center"
+                 TextColor="#02e3f9"
+                 FontFamily="Roboto-Bold-Italic"
+                 FontSize="25"
+                       />
                 <Button x:Name="btn"
                     Margin="0,0.2,0.1,0"
                     WidthRequest="32"
@@ -280,21 +291,7 @@
 
                 </Button>
 
-                <Label
-                 x:Name="lblButton"
-                 HorizontalOptions="FillAndExpand"
-                 VerticalOptions="FillAndExpand"
-                 HorizontalTextAlignment="Center"
-                 VerticalTextAlignment="Center"
-                 TextColor="#02e3f9"
-                 FontFamily="Roboto-Bold-Italic"
-                 FontSize="25"
-                       />
-                <!--
-                 
 
-                -->
-              
             </Grid> 
         <!--Fin de Circulos Internos y Boton-->
 
@@ -316,6 +313,20 @@
                 Text="FIN DE SEMANA "
                
                 />
+                <Picker
+                    x:Name="datePicker"
+                    IsVisible="false"    >
+                    <Picker.Items>
+                        <x:String>
+                            Hola
+                        </x:String>
+                        <x:String>
+                            Por gusto
+                        </x:String>
+                    </Picker.Items>
+
+                </Picker>
+                    
             </Grid>
             <!--Fin de etiqueta titulo-->
 

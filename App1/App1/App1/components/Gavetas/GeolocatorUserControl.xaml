@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="App1.components.Gavetas.GeolocatorUserControl"
+             xmlns:pacnkake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+             xmlns:shadows="clr-namespace:Sharpnado.Shades;assembly=Sharpnado.Shadows">
+  <ContentView.Content>
+        <shadows:Shadows 
+                CornerRadius="27" 
+                Shades="{shadows:SingleShade BlurRadius=10, Offset='0,4', 
+                Opacity=0.75, Color=Black}"
+                >
+            <pacnkake:PancakeView 
+                    x:Name="searchComponent"
+                    VerticalOptions="CenterAndExpand" 
+                    HorizontalOptions="EndAndExpand" CornerRadius="27.3"
+                    BackgroundColor="#0f0f28"
+                    HeightRequest="54.6"
+                    WidthRequest="54.6"
+                    >
+                <Grid
+                            VerticalOptions="CenterAndExpand"
+                            HorizontalOptions="CenterAndExpand"
+                           
+                            >
+                    <Path 
+                            Aspect="UniformToFill"
+                            Scale="0.6"
+                            Fill="aqua"
+                            Stroke="#0f0f28"
+                            StrokeThickness="4"
+                            Data="M119,54.43h-7.11A50.58,50.58,0,0,0,69.42,11.92V4.81A2.81,2.81,0,0,0,66.61,2H57.24a2.81,2.81,0,0,0-2.81,2.81v7.11A50.58,50.58,0,0,0,11.92,54.43H4.81A2.81,2.81,0,0,0,2,57.24v9.37a2.81,2.81,0,0,0,2.81,2.81h7.11a50.58,50.58,0,0,0,42.51,42.51V119a2.81,2.81,0,0,0,2.81,2.81h9.37A2.81,2.81,0,0,0,69.42,119v-7.11a50.58,50.58,0,0,0,42.51-42.51H119a2.81,2.81,0,0,0,2.81-2.81V57.24A2.81,2.81,0,0,0,119,54.43ZM69.42,96.72V87.21a2.81,2.81,0,0,0-2.81-2.81H57.24a2.81,2.81,0,0,0-2.81,2.81v9.51a35.64,35.64,0,0,1-27.3-27.3h9.51a2.81,2.81,0,0,0,2.81-2.81V57.24a2.81,2.81,0,0,0-2.81-2.81H27.13a35.64,35.64,0,0,1,27.3-27.3v9.51a2.81,2.81,0,0,0,2.81,2.81h9.37a2.81,2.81,0,0,0,2.81-2.81V27.13a35.64,35.64,0,0,1,27.3,27.3H87.21a2.81,2.81,0,0,0-2.81,2.81v9.37a2.81,2.81,0,0,0,2.81,2.81h9.51A35.64,35.64,0,0,1,69.42,96.72Zm0-34.79a7.5,7.5,0,1,1-7.49-7.5A7.5,7.5,0,0,1,69.42,61.93Z"
+                            >
+
+                    </Path>
+
+                </Grid>
+
+            </pacnkake:PancakeView>
+        </shadows:Shadows>
+
+    </ContentView.Content>
+</ContentView>

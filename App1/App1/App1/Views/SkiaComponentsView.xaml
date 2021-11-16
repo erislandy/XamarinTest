@@ -8,15 +8,30 @@
 
     <ContentPage.Content>
         <Grid
+                RowDefinitions="*,*"
                 VerticalOptions="FillAndExpand"
                 HorizontalOptions="FillAndExpand"
                 RowSpacing="0"
                 Padding="0">
-            <components:ArrowScrollComponent>
-                <components:ArrowScrollComponent.GestureRecognizers>
-                    <TapGestureRecognizer Command="{Binding TapCommand}"/>
-                </components:ArrowScrollComponent.GestureRecognizers>
-            </components:ArrowScrollComponent>
+            <Grid
+                WidthRequest="40"
+                HeightRequest="40"
+                VerticalOptions="CenterAndExpand"
+                HorizontalOptions="CenterAndExpand"
+                >
+                <components:UserIcon/>
+            </Grid>
+
+            <Grid
+                WidthRequest="40"
+                HeightRequest="40"
+                VerticalOptions="CenterAndExpand"
+                HorizontalOptions="CenterAndExpand"
+                Grid.Row="1"
+                >
+                <components:AstericIcon/>
+            </Grid>
+            
         </Grid>
     </ContentPage.Content>
 </ContentPage>

@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="App1.components.Gavetas.ZoomUserControl"
+             xmlns:pacnkake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+             xmlns:shadows="clr-namespace:Sharpnado.Shades;assembly=Sharpnado.Shadows">
+  <ContentView.Content>
+        <Grid
+                    VerticalOptions="CenterAndExpand"
+                    HorizontalOptions="CenterAndExpand"
+                    RowDefinitions="Auto,Auto,Auto"
+                    RowSpacing="0"
+                    >
+            <Grid
+                        x:Name="btnPlus"
+                        Margin="0,0,0,6"
+                        WidthRequest="14.5"
+                        HeightRequest="14.5"
+                        VerticalOptions="CenterAndExpand"
+                        HorizontalOptions="CenterAndExpand"
+                        IsVisible="false"
+                        Opacity="0">
+                <Grid.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="PlusTapped"
+                                          />
+                </Grid.GestureRecognizers>
+                <BoxView
+                            VerticalOptions="CenterAndExpand"
+                            HeightRequest="4"
+                            HorizontalOptions="FillAndExpand"
+                            CornerRadius="2"
+                            BackgroundColor="Aqua"
+                            />
+                <BoxView
+                            VerticalOptions="FillAndExpand"
+                            WidthRequest="4"
+                            HorizontalOptions="CenterAndExpand"
+                            CornerRadius="2"
+                            BackgroundColor="Aqua"
+                            />
+            </Grid>
+            <BoxView
+                        x:Name="rectangleBars"
+                        Grid.Row="1"
+                        CornerRadius="2"
+                        WidthRequest="4"
+                        HeightRequest="0"
+                        Opacity="0"
+                        BackgroundColor="Aqua"
+                        HorizontalOptions="CenterAndExpand"
+                        VerticalOptions="CenterAndExpand"
+                        IsVisible="false"
+                        />
+            <pacnkake:PancakeView
+                        Grid.Row="0"
+                        Grid.RowSpan="3"
+                        x:Name="btnCenter"
+                        VerticalOptions="CenterAndExpand" 
+                        HorizontalOptions="CenterAndExpand" CornerRadius="13.8"
+                        BackgroundColor="#0f0f28"
+                        HeightRequest="27.7"
+                        WidthRequest="27.7"
+                    >
+                <Path
+                            WidthRequest="15.1"
+                            HeightRequest="15.1"
+                            VerticalOptions="CenterAndExpand"
+                            HorizontalOptions="CenterAndExpand"
+                            Aspect="UniformToFill"
+                            Fill="Aqua"
+                            Data="M6.45,25A18.55,18.55,0,1,1,25,43.55,18.54,18.54,0,0,1,6.45,25M0,25A25,25,0,1,0,25,0,25,25,0,0,0,0,25Zm18.55,0A6.45,6.45,0,1,1,25,31.45,6.45,6.45,0,0,1,18.55,25M12.1,25A12.9,12.9,0,1,0,25,12.1,12.89,12.89,0,0,0,12.1,25Z"
+                            >
+
+                </Path>
+
+                <pacnkake:PancakeView.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="CenterTapped"/>
+                </pacnkake:PancakeView.GestureRecognizers>
+            </pacnkake:PancakeView>
+            <Grid
+                        Grid.Row="2"
+                        x:Name="btnMinus"
+                        Margin="0,6,0,0"
+                        WidthRequest="14.5"
+                        HeightRequest="14.5"
+                        VerticalOptions="CenterAndExpand"
+                        HorizontalOptions="CenterAndExpand"
+                        IsVisible="false"
+                        Opacity="0"
+                        >
+                <Grid.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="MinusTapped"
+                                          />
+                </Grid.GestureRecognizers>
+                <BoxView
+                            VerticalOptions="CenterAndExpand"
+                            HeightRequest="4"
+                            HorizontalOptions="FillAndExpand"
+                            CornerRadius="2"
+                            BackgroundColor="Aqua"
+                            />
+            </Grid>
+
+        </Grid>
+
+    </ContentView.Content>
+</ContentView>
