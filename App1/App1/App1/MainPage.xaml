@@ -77,8 +77,7 @@
                 HorizontalOptions="Center" 
                 Text="Elements Map"
                 Command="{prism:NavigateTo 'MapElementsView'}"/>
-           
-
+            
         </Grid>
        
 

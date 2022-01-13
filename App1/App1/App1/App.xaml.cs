@@ -6,6 +6,7 @@ using Prism.Ioc;
 using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using App1.Helper;
 
 namespace App1
 {

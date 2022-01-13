@@ -7,10 +7,14 @@ namespace App1.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class SkiaComponentsView : ContentPage
     {
+       
+        #region Constructors
         public SkiaComponentsView()
         {
             InitializeComponent();
         }
+        #endregion
+
 
     }
 }

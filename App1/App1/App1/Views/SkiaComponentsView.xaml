@@ -8,30 +8,35 @@
 
     <ContentPage.Content>
         <Grid
-                RowDefinitions="*,*"
+                RowDefinitions="*,*,*"
+                ColumnDefinitions="*,*,*,*"
                 VerticalOptions="FillAndExpand"
                 HorizontalOptions="FillAndExpand"
-                RowSpacing="0"
-                Padding="0">
-            <Grid
-                WidthRequest="40"
-                HeightRequest="40"
-                VerticalOptions="CenterAndExpand"
-                HorizontalOptions="CenterAndExpand"
-                >
-                <components:UserIcon/>
-            </Grid>
+            >
 
-            <Grid
-                WidthRequest="40"
-                HeightRequest="40"
-                VerticalOptions="CenterAndExpand"
-                HorizontalOptions="CenterAndExpand"
-                Grid.Row="1"
-                >
-                <components:AstericIcon/>
-            </Grid>
-            
+
+            <components:DrawerleftSkiaControl
+                Handle="{Binding Handle}"
+                DescriptionButton="{Binding IconButton}"
+                DescriptionTitle="{Binding Title}"
+                DescriptionValue="{Binding Description}"
+                DrawerState="{Binding DrawerState}"
+                Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="1">
+                <components:DrawerleftSkiaControl.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding SaveCommand}"/>
+                </components:DrawerleftSkiaControl.GestureRecognizers>
+            </components:DrawerleftSkiaControl>
+            <components:DrawerRightSkiaComponent 
+                DescriptionButton="{Binding IconButton}"
+                DescriptionTitle="{Binding Title}"
+                DescriptionValue="{Binding Description}"
+                DrawerState="{Binding DrawerState}"
+                Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="1">
+               
+            </components:DrawerRightSkiaComponent>
+           
         </Grid>
+
+    
     </ContentPage.Content>
 </ContentPage>
