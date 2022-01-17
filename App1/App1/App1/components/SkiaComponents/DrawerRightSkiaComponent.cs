@@ -43,7 +43,7 @@ namespace App1.components.SkiaComponents
                                                          typeof(string),
                                                          typeof(DrawerRightSkiaComponent),
                                                          "Normal",
-                                                        propertyChanged: OnPropertyChanged,
+                                                        propertyChanged: OnDrawerStateChanged,
                                                         defaultBindingMode: BindingMode.TwoWay);
 
 
@@ -374,7 +374,23 @@ namespace App1.components.SkiaComponents
             (bindable as DrawerRightSkiaComponent).IsVisible = handle == "" ? false : true;
 
         }
-       
+        private static void OnDrawerStateChanged(BindableObject bindable, object oldVal, object newVal)
+        {
+            var newValue = newVal as string;
+            var bar = bindable as DrawerRightSkiaComponent;
+            if (newValue == "EventsResultsEmpty")
+            {
+                bar.Opacity = 0;
+            }
+            else
+            {
+                bar.Opacity = 1;
+                bar?.InvalidateSurface();
+            }
+            
+        }
+        
+
 
         #endregion
 

@@ -5,28 +5,26 @@
              xmlns:components="clr-namespace:App1.components"
              xmlns:gavetas="clr-namespace:App1.components.Gavetas"
              xmlns:pacnkake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
-             xmlns:shadows="clr-namespace:Sharpnado.Shades;assembly=Sharpnado.Shadows">
+             xmlns:shadows="clr-namespace:Sharpnado.Shades;assembly=Sharpnado.Shadows"
+             xmlns:controles="clr-namespace:App1.components.Controls">
 
     <ContentPage.Content>
         <Grid
             BackgroundColor="LightGray"
-            RowDefinitions="Auto,*,*"
+            
             Padding="18">
-            <components:NewSearchComponent
-                TapCommand="{Binding SearchCommand}"
-                />
+            <controles:AutoCompleteView 
+                ItemsSource="{Binding ItemsSource}"
+                SearchMember="Value">
+                <controles:AutoCompleteView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Label Text="{Binding Value}"/>
+                        </ViewCell>
+                    </DataTemplate>
+                </controles:AutoCompleteView.ItemTemplate>
+            </controles:AutoCompleteView>
 
-            <Grid
-                Grid.Row="1"
-                >
-                <gavetas:ZoomUserControl
-                    />
-            </Grid>
-            <Grid
-                Grid.Row="2"
-                >
-                <gavetas:GeolocatorUserControl/>
-            </Grid>
         </Grid>
     </ContentPage.Content>
 </ContentPage>

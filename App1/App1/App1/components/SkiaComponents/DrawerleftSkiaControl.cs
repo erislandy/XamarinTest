@@ -19,7 +19,7 @@
                                                                 "ParentDrawer",
                                                                 typeof(string),
                                                                 typeof(DrawerleftSkiaControl),
-                                                               string.Empty,
+                                                               null,
                                                                 defaultBindingMode: BindingMode.TwoWay);
         
         public static readonly BindableProperty DataTypeProperty = BindableProperty.Create(
