@@ -14,6 +14,8 @@ namespace App1.ViewModels
         private string _iconButton;
         private string _drawerState;
         private string _handle;
+        private bool _isOpened;
+        private bool _isCreatedByUser;
         public SkiaComponentsViewModel()
         {
             Title = string.Empty;
@@ -21,6 +23,8 @@ namespace App1.ViewModels
             IconButton = string.Empty;
             DrawerState = "Normal";
             Handle = "";
+            IsOpened = true;
+            IsCreatedByUser = false;
         }
         public string Title { 
             get => _title; 
@@ -46,17 +50,32 @@ namespace App1.ViewModels
             get => _handle;
             set => SetProperty(ref _handle, value);
         }
+        public bool IsCreatedByUser
+        {
+            get => _isCreatedByUser;
+            set => SetProperty(ref _isCreatedByUser, value);
+        }
         public ICommand SaveCommand
         {
             get => new DelegateCommand(() => {
 
-                Title = "15/11/2021";
-                Description = "Fecha";
-                IconButton = "22";
-                DrawerState = "Marked";
-                Handle = "665";
+                Title = "Concierto de jazz";
+                Description = "12/22/2021";
+                IsCreatedByUser = !IsCreatedByUser;
             });
         }
-        
+        public ICommand SwitchCommand
+        {
+            get => new DelegateCommand(() => {
+
+                IsOpened = !IsOpened;
+            });
+        }
+
+        public bool IsOpened {
+            get => _isOpened;
+            set => SetProperty(ref _isOpened, value);
+        }
+
     }
 }

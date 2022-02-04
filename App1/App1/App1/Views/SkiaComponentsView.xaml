@@ -3,38 +3,28 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="App1.Views.SkiaComponentsView"
              xmlns:skia="clr-namespace:SkiaSharp.Views.Forms;assembly=SkiaSharp.Views.Forms"
-             xmlns:components="clr-namespace:App1.components.SkiaComponents"   
+             xmlns:components="clr-namespace:App1.components.SkiaComponents" 
+             xmlns:comp="clr-namespace:App1.components"
              xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView">
 
     <ContentPage.Content>
         <Grid
-                RowDefinitions="*,*,*"
-                ColumnDefinitions="*,*,*,*"
-                VerticalOptions="FillAndExpand"
-                HorizontalOptions="FillAndExpand"
+            HorizontalOptions="FillAndExpand"
+            ColumnSpacing="0"
+            RowSpacing="0"
+            RowDefinitions="*,*"
+            ColumnDefinitions="*"
+            VerticalOptions="CenterAndExpand"
+            Padding="40,0,40,0"
             >
-
-
-            <components:DrawerleftSkiaControl
-                Handle="{Binding Handle}"
-                DescriptionButton="{Binding IconButton}"
+            <Button Text="Change" Command="{Binding SaveCommand}"/>
+            <components:ItemEventComponent
+                Grid.Row="1"
                 DescriptionTitle="{Binding Title}"
-                DescriptionValue="{Binding Description}"
-                DrawerState="{Binding DrawerState}"
-                Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="1">
-                <components:DrawerleftSkiaControl.GestureRecognizers>
-                    <TapGestureRecognizer Command="{Binding SaveCommand}"/>
-                </components:DrawerleftSkiaControl.GestureRecognizers>
-            </components:DrawerleftSkiaControl>
-            <components:DrawerRightSkiaComponent 
-                DescriptionButton="{Binding IconButton}"
-                DescriptionTitle="{Binding Title}"
-                DescriptionValue="{Binding Description}"
-                DrawerState="{Binding DrawerState}"
-                Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="1">
-               
-            </components:DrawerRightSkiaComponent>
-           
+                
+                DescriptionDate="{Binding Description}"
+                IsCreatedByUser="{Binding IsCreatedByUser}"
+                />
         </Grid>
 
     

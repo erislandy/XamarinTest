@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="App1.components.SwitchEyeIcon"
+             xmlns:components ="clr-namespace:App1.components.SkiaComponents">
+  <ContentView.Content>
+      <StackLayout>
+            <components:EyeOpenedSkiaComponent
+                x:Name="eyeOpened"
+                />
+            <components:EyeClosedSkiaComponent
+                x:Name="eyeClosed"
+                />
+        </StackLayout>
+  </ContentView.Content>
+</ContentView>

@@ -18,7 +18,6 @@ namespace App1
         protected override async void OnInitialized()
         {
             InitializeComponent();
-
             await NavigationService.NavigateAsync("NavigationPage/MainPage");
         }
 
@@ -33,8 +32,7 @@ namespace App1
             containerRegistry.RegisterForNavigation<DialogsView,DialogsViewModel>();
             containerRegistry.RegisterDialog<FilterSelection, FilterSelectionViewModel>("filterDialog");
             containerRegistry.RegisterForNavigation<MapElementsView, MapsElementsViewModel>();
-
-            //    containerRegistry.RegisterForNavigation<SwipePage, SwipePageViewModel>();
+            containerRegistry.RegisterForNavigation<SwipePage, SwipePageViewModel>();
 
         }
 

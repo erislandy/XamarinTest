@@ -2,12 +2,26 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="App1.Views.AnimationViewPage"
-             
-             xmlns:xamanimations="clr-namespace:Xamanimation;assembly=Xamanimation">
+             xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+             xmlns:components="clr-namespace:App1.components.SkiaComponents"
+             xmlns:controls="clr-namespace:Xamarin.Forms.TabView;assembly=Xamarin.Forms.TabView"
+             xmlns:xamanimations="clr-namespace:Xamanimation;assembly=Xamanimation" 
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             NavigationPage.HasNavigationBar="False">
    <ContentPage.Content>
-        <Grid RowDefinitions="*,Auto,Auto" RowSpacing="0"> 
-            <Grid BackgroundColor="Green"/>
-         
+        <Grid >
+            <StackLayout
+                HeightRequest="200"
+                WidthRequest="200">
+                <Label Text="Erislandy"/>
+                <xct:MediaElement 
+                    Source="https://media.istockphoto.com/videos/seafood-casserole-video-id1264051741"
+                    AutoPlay="False" 
+                    HeightRequest="200"
+                    WidthRequest="300" 
+                    ShowsPlaybackControls="False"
+                    HorizontalOptions="Center"/>
+            </StackLayout>
         </Grid>
     </ContentPage.Content>
 </ContentPage>

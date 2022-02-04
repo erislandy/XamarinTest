@@ -1,66 +1,90 @@
 ﻿namespace App1.components.SkiaComponents
 {
+    using Prism.Commands;
+    using Prism.Navigation;
     using SkiaSharp;
     using SkiaSharp.Views.Forms;
     using System.Collections.Generic;
+    using System.Windows.Input;
     using Xamarin.Forms;
 
-    public class DrawerleftSkiaControl: SKCanvasView
+    public class DrawerLeftSkiaControl : SKCanvasView
     {
+        #region Constructor
+        public DrawerLeftSkiaControl()
+        {
+            var tap = new TapGestureRecognizer
+            {
+                NumberOfTapsRequired = 1,
+                Command = new DelegateCommand(() =>
+                {
+                    var param = GetParam();
+                    TapCommand?.Execute(param);
+                })
+            };
+            this.GestureRecognizers.Add(tap);
+        }
+        #endregion
         #region Bindables Properties
+        public static readonly BindableProperty TapCommandProperty = BindableProperty.Create(
+                                                                "TapCommand",
+                                                                typeof(ICommand),
+                                                                typeof(DrawerLeftSkiaControl),
+                                                                null);
         public static readonly BindableProperty DescriptionButtonProperty = BindableProperty.Create(
                                                            "DescriptionButton",
                                                            typeof(string),
-                                                           typeof(DrawerleftSkiaControl),
+                                                           typeof(DrawerLeftSkiaControl),
                                                            string.Empty,
                                                            propertyChanged: OnPropertyChanged);
 
         public static readonly BindableProperty ParentDrawerProperty = BindableProperty.Create(
                                                                 "ParentDrawer",
                                                                 typeof(string),
-                                                                typeof(DrawerleftSkiaControl),
+                                                                typeof(DrawerLeftSkiaControl),
                                                                null,
                                                                 defaultBindingMode: BindingMode.TwoWay);
-        
+
         public static readonly BindableProperty DataTypeProperty = BindableProperty.Create(
                                                                "DataType",
                                                                typeof(FilterType),
-                                                               typeof(DrawerleftSkiaControl),
+                                                               typeof(DrawerLeftSkiaControl),
                                                                FilterType.NULL,
+                                                               propertyChanged: DataTypeMethod,
                                                                defaultBindingMode: BindingMode.TwoWay);
 
         public static readonly BindableProperty DrawerStateProperty = BindableProperty.Create(
                                                         "DrawerState",
                                                         typeof(string),
-                                                        typeof(DrawerleftSkiaControl),
+                                                        typeof(DrawerLeftSkiaControl),
                                                         "Normal",
-                                                       propertyChanged: OnPropertyChanged,
+                                                       propertyChanged: OnDrawerStateChanged,
                                                        defaultBindingMode: BindingMode.TwoWay);
-      
+
         public static readonly BindableProperty HandleProperty = BindableProperty.Create(
                                                              "Handle",
                                                              typeof(string),
-                                                             typeof(DrawerleftSkiaControl),
+                                                             typeof(DrawerLeftSkiaControl),
                                                              null,
                                                               propertyChanged: OnHandleChanged);
 
         public static readonly BindableProperty DescriptionTitleProperty = BindableProperty.Create(
                                                                "DescriptionTitle",
                                                                typeof(string),
-                                                               typeof(DrawerleftSkiaControl),
+                                                               typeof(DrawerLeftSkiaControl),
                                                                string.Empty,
                                                                propertyChanged: OnPropertyChanged);
 
         public static readonly BindableProperty DescriptionValueProperty = BindableProperty.Create(
                                                                "DescriptionValue",
                                                                typeof(string),
-                                                               typeof(DrawerleftSkiaControl),
+                                                               typeof(DrawerLeftSkiaControl),
                                                                string.Empty,
                                                                propertyChanged: OnPropertyChanged);
         public static readonly BindableProperty ElementsListProperty = BindableProperty.Create(
                                                                   "ElementsList",
                                                                   typeof(List<string>),
-                                                                  typeof(DrawerleftSkiaControl),
+                                                                  typeof(DrawerLeftSkiaControl),
                                                                   new List<string>(),
                                                                   defaultBindingMode: BindingMode.TwoWay);
 
@@ -91,7 +115,10 @@
         public FilterType DataType
         {
             get { return (FilterType)GetValue(DataTypeProperty); }
-            set { SetValue(DataTypeProperty, value); }
+            set
+            {
+                SetValue(DataTypeProperty, value);
+            }
         }
         public string DrawerState
         {
@@ -113,9 +140,10 @@
         public string Handle
         {
             get { return (string)GetValue(HandleProperty); }
-            set { 
-                SetValue(HandleProperty, 
-                    value); 
+            set
+            {
+                SetValue(HandleProperty,
+                    value);
             }
         }
 
@@ -127,7 +155,10 @@
         public string DescriptionTitle
         {
             get { return (string)GetValue(DescriptionTitleProperty); }
-            set { SetValue(DescriptionTitleProperty, value); }
+            set
+            {
+                SetValue(DescriptionTitleProperty, value);
+            }
         }
         public List<string> ElementsList
         {
@@ -135,6 +166,14 @@
             set { SetValue(ElementsListProperty, value); }
         }
 
+        #endregion
+
+        #region Commands
+        public ICommand TapCommand
+        {
+            get { return (ICommand)GetValue(TapCommandProperty); }
+            set { SetValue(TapCommandProperty, value); }
+        }
         #endregion
         protected override void OnPaintSurface(SKPaintSurfaceEventArgs e)
         {
@@ -146,6 +185,11 @@
             //Translate to the center and scale to 200px
             canvas.Translate(width / 2, height / 2);
             canvas.Scale(width / 200f);
+
+            if (DrawerState == "EventsResultsEmpty")
+            {
+                return;
+            }
 
             #endregion
 
@@ -213,7 +257,7 @@
             #region Drawer Description
 
             canvas.Translate(76.38f, 8.04f);
-            var drawerDescription = "Fecha";
+            var drawerDescription = DescriptionValue.ToUpper();
             var drawerDescriptionPaint = new SKPaint
             {
                 Color = SKColors.Black,
@@ -242,11 +286,13 @@
             );
             canvas.DrawCircle(0, 0, 30.4f, fillButtonCircle);
 
-            canvas.Translate(0.5f, 0);
+
 
             #endregion
 
             #region Semi Circle Left
+
+            canvas.Translate(-1f, 0);
             var semiCircleLeft = new SKPath();
             semiCircleLeft.MoveTo(0, 21.23f);
             semiCircleLeft.RLineTo(0, 2.12f);
@@ -257,7 +303,7 @@
             semiCircleLeft.ArcTo(rectInterior, -90, -180, false);
             semiCircleLeft.Close();
             var fillSemiCircleColors = DrawerVisualStates[DrawerState].FillSemiCircleColors;
-           
+
 
             fillLeftSemiCircle.Shader = SKShader.CreateLinearGradient(
                 new SKPoint(24.25f, 0),
@@ -271,7 +317,7 @@
             #endregion
 
             #region Semi Circle Right
-            canvas.Translate(1, 0);
+            canvas.Translate(2f, 0);
             var semiCircleRight = new SKPath();
             semiCircleRight.MoveTo(0, 21.23f);
             semiCircleRight.RLineTo(0, 2.12f);
@@ -289,15 +335,22 @@
                 );
             canvas.DrawPath(semiCircleRight, fillLeftSemiCircle);
 
-            canvas.Translate(-0.5f, 0);
+            canvas.Translate(-1f, 0);
 
             #endregion
 
             #region Icon Description
 
-            var iconDescription = "12";
+            var iconDescription = DescriptionButton;
+            //validar descripcion cuando no hay eventos
+            var number = 17f;
+            if (iconDescription.Contains("fa-calendar"))
+            {
+                number = 12f;
+                iconDescription = "{{fa-calendar}}";
+            }
             var iconColor = DrawerVisualStates[DrawerState].TextIconColor;
-           
+
             var iconPaint = new SKPaint
             {
                 Color = iconColor,
@@ -305,18 +358,18 @@
                 Typeface = SKTypeface.FromFamilyName(null, SKFontStyle.Bold)
             };
             float textWidth = iconPaint.MeasureText(iconDescription);
-            var calc = 17f * iconDescription.Length * iconPaint.TextSize / textWidth;
+            var calc = number * iconDescription.Length * iconPaint.TextSize / textWidth;
             iconPaint.TextSize = calc;
             SKRect iconTextBounds = new SKRect();
             iconPaint.MeasureText(iconDescription, ref iconTextBounds);
-            canvas.DrawText(iconDescription, 0, -1 * iconTextBounds.MidY, iconPaint);
+            //canvas.DrawIconifiedText(iconDescription, 0, -1 * iconTextBounds.MidY, iconPaint);
 
             #endregion
 
             #region Drawer Title
 
             canvas.Translate(83.16f, 0);
-            var drawerTitle = "09/12/21";
+            var drawerTitle = DescriptionTitle.ToUpper();
             var drawerTitleColor = new SKColor();
             SKColor.TryParse("02e3f9", out drawerTitleColor);
             var drawerTitlePaint = new SKPaint
@@ -326,7 +379,8 @@
                 Typeface = SKTypeface.FromFamilyName(null, SKFontStyle.Bold)
             };
             float titleWidth = drawerTitlePaint.MeasureText(drawerTitle);
-            var calc1 = 10.12f * drawerTitle.Length * drawerTitlePaint.TextSize / titleWidth;
+            var calc1 = 18.9588f;
+            //var calc1 = 10.12f * drawerTitle.Length * drawerTitlePaint.TextSize / titleWidth;
             drawerTitlePaint.TextSize = calc1;
             SKRect drawerTitleTextBounds = new SKRect();
             drawerTitlePaint.MeasureText(drawerTitle, ref drawerTitleTextBounds);
@@ -371,15 +425,50 @@
         }
 
         #region Methods
+
+        private object GetParam()
+        {
+            if (DataType == FilterType.PRICE || DataType == FilterType.HOUR)
+            {
+                return ElementsList;
+            }
+            return new NavigationParameters {
+                    {"dataType", DataType },
+                    {"parentDrawer", ParentDrawer }
+                };
+
+        }
         private static void OnPropertyChanged(BindableObject bindable, object oldVal, object newVal)
         {
-            var bar = bindable as DrawerleftSkiaControl;
+            var bar = bindable as DrawerLeftSkiaControl;
             bar?.InvalidateSurface();
         }
         static void OnHandleChanged(BindableObject bindable, object oldValue, object newValue)
         {
             var handle = newValue as string;
-            (bindable as DrawerleftSkiaControl).IsVisible = handle == "" ? false : true;
+            (bindable as DrawerLeftSkiaControl).IsVisible = handle == "" ? false : true;
+
+        }
+        static void DataTypeMethod(BindableObject bindable, object oldValue, object newValue)
+        {
+
+            var type = (FilterType)newValue;
+            (bindable as DrawerLeftSkiaControl).DataType = type;
+        }
+
+        private static void OnDrawerStateChanged(BindableObject bindable, object oldVal, object newVal)
+        {
+            var newValue = newVal as string;
+            var bar = bindable as DrawerLeftSkiaControl;
+            if (newValue == "EventsResultsEmpty")
+            {
+                bar.Opacity = 0;
+            }
+            else
+            {
+                bar.Opacity = 1;
+                bar?.InvalidateSurface();
+            }
 
         }
         #endregion
@@ -415,6 +504,5 @@
 
         };
         #endregion
-
     }
 }

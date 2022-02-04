@@ -1,0 +1,167 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="App1.Views.SwipePage"
+             xmlns:shadows="clr-namespace:Sharpnado.Shades;assembly=Sharpnado.Shadows"
+                xmlns:skia="clr-namespace:SkiaSharp.Views.Forms;assembly=SkiaSharp.Views.Forms"
+               >
+    <ContentPage.Content>
+        <Grid
+            BackgroundColor="Beige"
+            RowDefinitions="*,*,*">
+            <Grid 
+                x:Name="filterBar"
+                HeightRequest="25"
+                Margin="0,-13,0,0"
+                VerticalOptions="Center"
+                
+                >
+                
+                <Path
+                    Aspect="Fill"
+                    Data="M30,56l85.51,12.18c44.05,6.27,84.49,28.56,112.42,63.2.7.86,1.39,1.74,2.07,2.62h0c0,20.09,1040,20.09,1040,0h0c.68-.88,1.37-1.76,2.07-2.62,27.93-34.64,68.37-56.93,112.42-63.2L1470,56C1470,14.7,30,14.7,30,56Z"
+                    >
+                    <Path.Fill>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                            <GradientStop Offset="0" Color="#b6fff3"/>
+                            <GradientStop Offset="0.02" Color="#a7faf1"/>
+                            <GradientStop Offset="0.07" Color="#7beaea"/>
+                            <GradientStop Offset="0.14" Color="#56dce4"/>
+                            <GradientStop Offset="0.2" Color="#37d1df"/>
+                            <GradientStop Offset="0.26" Color="#1fc9dc"/>
+                            <GradientStop Offset="0.33" Color="#0ec3d9"/>
+                            <GradientStop Offset="0.41" Color="#04bfd7"/>
+                            <GradientStop Offset="0.5" Color="#01bed7"/>
+                            <GradientStop Offset="0.59" Color="#04bfd7"/>
+                            <GradientStop Offset="0.67" Color="#0ec3d9"/>
+                            <GradientStop Offset="0.74" Color="#1fc8dc"/>
+                            <GradientStop Offset="0.81" Color="#37d0df"/>
+                            <GradientStop Offset="0.87" Color="#56dbe4"/>
+                            <GradientStop Offset="0.93" Color="#7be8ea"/>
+                            <GradientStop Offset="0.99" Color="#a7f7f1"/>
+                            <GradientStop Offset="1" Color="#b1faf2"/>
+                        </LinearGradientBrush>
+                    </Path.Fill>
+                    <Path.Stroke>
+                        <LinearGradientBrush>
+                            <GradientStop Offset="0" Color="blue"/>
+                            <GradientStop Offset="0.05" Color="#0005ff"/>
+                            <GradientStop Offset="0.11" Color="#0015fe"/>
+                            <GradientStop Offset="0.18" Color="#002ffd"/>
+                            <GradientStop Offset="0.25" Color="#0053fc"/>
+                            <GradientStop Offset="0.33" Color="#0081fa"/>
+                            <GradientStop Offset="0.41" Color="#00b9f8"/>
+                            <GradientStop Offset="0.49" Color="#00faf5"/>
+                            <GradientStop Offset="0.49" Color="#00fff5"/>
+                            <GradientStop Offset="0.52" Color="#00e7f2"/>
+                            <GradientStop Offset="0.6" Color="#00abec"/>
+                            <GradientStop Offset="0.67" Color="#0177e6"/>
+                            <GradientStop Offset="0.75" Color="#014de1"/>
+                            <GradientStop Offset="0.82" Color="#012cde"/>
+                            <GradientStop Offset="0.88" Color="#0114db"/>
+                            <GradientStop Offset="0.95" Color="#0106da"/>
+                            <GradientStop Offset="1" Color="#0101d9"/>
+                        </LinearGradientBrush>
+                    </Path.Stroke>
+                </Path>
+
+                <Label 
+                    Text="{Binding DrawerManager.SelectedDrawer.DrawerTitle}" 
+                    FontSize="Subtitle"
+                    TextColor="White"
+                    FontAttributes="Bold"
+                    VerticalOptions="CenterAndExpand" 
+                    HorizontalOptions="CenterAndExpand"
+                    HorizontalTextAlignment="Center"
+                    VerticalTextAlignment="Center"/>
+
+            </Grid>
+
+            <shadows:Shadows CornerRadius="27" 
+                Shades="{shadows:SingleShade BlurRadius=5, Offset='0,2',Opacity=0.75, Color=Cyan}"
+                  Grid.Row="1">
+               
+                <Grid
+                    VerticalOptions="Center"
+                    HeightRequest="200"
+                    >
+                    <Path
+                    Aspect="Uniform"
+                    Data="M27.53,47,113,56.63c44.05,4.94,84.48,22.5,112.41,49.79.7.68,1.39,1.37,2.08,2.06h0c0,15.83,1040,15.83,1040,0h0c.68-.69,1.37-1.38,2.07-2.06C1297.53,79.13,1338,61.57,1382,56.63L1467.53,47C1467.53,14.5,27.53,14.5,27.53,47Z"
+                    >
+                        <Path.Fill>
+                            <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                                <GradientStop Offset="0" Color="#b4fff1"/>
+                                <GradientStop Offset="0.01" Color="#a7faef"/>
+                                <GradientStop Offset="0.07" Color="#7beae8"/>
+                                <GradientStop Offset="0.13" Color="#56dce2"/>
+                                <GradientStop Offset="0.2" Color="#37d0dd"/>
+                                <GradientStop Offset="0.26" Color="#1fc7da"/>
+                                <GradientStop Offset="0.33" Color="#0ec1d7"/>
+                                <GradientStop Offset="0.41" Color="#04bdd5"/>
+                                <GradientStop Offset="0.5" Color="#01bcd5"/>
+                                <GradientStop Offset="0.6" Color="#04bdd5"/>
+                                <GradientStop Offset="0.67" Color="#0ec1d7"/>
+                                <GradientStop Offset="0.74" Color="#1fc6da"/>
+                                <GradientStop Offset="0.81" Color="#37cfdd"/>
+                                <GradientStop Offset="0.87" Color="#56d9e2"/>
+                                <GradientStop Offset="0.93" Color="#7be6e8"/>
+                                <GradientStop Offset="0.99" Color="#a7f5ef"/>
+                                <GradientStop Offset="1" Color="#aff8f0"/>
+                            </LinearGradientBrush>
+                        </Path.Fill>
+
+
+                    </Path>
+                    <Path
+                    Aspect="Uniform"
+                    Data="M747.53,28c181.8,0,353,2,482,5.72,69.22,2,124.46,4.38,164.18,7.15,20.38,1.41,34.82,2.81,45.06,4.07l-57.39,6.44c-46,5.15-87,23.36-115.54,51.27-.68.66-1.35,1.33-2,2-2.55.72-12.43,2.43-50.46,4.19-28.81,1.33-68.73,2.49-118.66,3.45C1001.66,114,878.35,115,747.53,115s-254.13-1-347.22-2.77c-49.93-1-89.85-2.12-118.65-3.45-38-1.76-47.92-3.47-50.47-4.19-.66-.68-1.34-1.35-2-2-28.56-27.91-69.6-46.12-115.55-51.27L56.24,44.9c10.24-1.26,24.69-2.66,45.07-4.07,39.71-2.77,94.95-5.17,164.18-7.15C394.53,30,565.72,28,747.53,28m0-5.33c-360,0-720,8.14-720,24.41L113,56.63c44.05,4.94,84.48,22.5,112.41,49.79.7.68,1.39,1.37,2.08,2.06h0c0,7.91,260,11.86,520,11.86s520-3.95,520-11.86h0c.68-.69,1.37-1.38,2.07-2.06C1297.53,79.13,1338,61.57,1382,56.63L1467.53,47c0-16.27-360-24.41-720-24.41Z"
+                    >
+                        <Path.Fill>
+                            <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                                <GradientStop Offset="0" Color="Blue"/>
+                                <GradientStop Offset="0.05" Color="#0005ff"/>
+                                <GradientStop Offset="0.11" Color="#0015fe"/>
+                                <GradientStop Offset="0.18" Color="#002ffd"/>
+                                <GradientStop Offset="0.25" Color="#0053fb"/>
+                                <GradientStop Offset="0.33" Color="#0081f9"/>
+                                <GradientStop Offset="0.41" Color="#00b9f6"/>
+                                <GradientStop Offset="0.49" Color="#00faf3"/>
+                                <GradientStop Offset="0.49" Color="#00fff3"/>
+                                <GradientStop Offset="0.52" Color="#00e7f0"/>
+                                <GradientStop Offset="0.6" Color="#00abea"/>
+                                <GradientStop Offset="0.67" Color="#0177e4"/>
+                                <GradientStop Offset="0.75" Color="#014ddf"/>
+                                <GradientStop Offset="0.82" Color="#012cdc"/>
+                                <GradientStop Offset="0.88" Color="#0114d9"/>
+                                <GradientStop Offset="0.95" Color="#0106d8"/>
+                                <GradientStop Offset="0.95" Color="#0101d7"/>
+                            </LinearGradientBrush>
+                        </Path.Fill>
+
+
+                    </Path>
+                    <!--
+                    <Grid.Clip>
+                        <PathGeometry
+                    Figures="M747.53,28c181.8,0,353,2,482,5.72,69.22,2,124.46,4.38,164.18,7.15,20.38,1.41,34.82,2.81,45.06,4.07l-57.39,6.44c-46,5.15-87,23.36-115.54,51.27-.68.66-1.35,1.33-2,2-2.55.72-12.43,2.43-50.46,4.19-28.81,1.33-68.73,2.49-118.66,3.45C1001.66,114,878.35,115,747.53,115s-254.13-1-347.22-2.77c-49.93-1-89.85-2.12-118.65-3.45-38-1.76-47.92-3.47-50.47-4.19-.66-.68-1.34-1.35-2-2-28.56-27.91-69.6-46.12-115.55-51.27L56.24,44.9c10.24-1.26,24.69-2.66,45.07-4.07,39.71-2.77,94.95-5.17,164.18-7.15C394.53,30,565.72,28,747.53,28m0-5.33c-360,0-720,8.14-720,24.41L113,56.63c44.05,4.94,84.48,22.5,112.41,49.79.7.68,1.39,1.37,2.08,2.06h0c0,7.91,260,11.86,520,11.86s520-3.95,520-11.86h0c.68-.69,1.37-1.38,2.07-2.06C1297.53,79.13,1338,61.57,1382,56.63L1467.53,47c0-16.27-360-24.41-720-24.41Z"
+                    >
+
+
+                        </PathGeometry>
+
+                    </Grid.Clip>
+                    -->
+                    
+                </Grid>
+            </shadows:Shadows>
+
+            <skia:SKCanvasView
+                Grid.Row="3"
+                PaintSurface="SKCanvasView_PaintSurface"
+                />
+
+        </Grid>
+       
+    </ContentPage.Content>
+</ContentPage>

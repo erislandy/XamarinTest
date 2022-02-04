@@ -5,7 +5,9 @@ VisualStudioVersion = 16.0.31402.337
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App1.Android", "App1\App1.Android\App1.Android.csproj", "{16618185-D8D2-46AC-9C22-B54D31011F5C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App1", "App1\App1\App1.csproj", "{CA4EB302-3C6F-4A8A-BCD0-D099D17446AF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "App1", "App1\App1\App1.csproj", "{CA4EB302-3C6F-4A8A-BCD0-D099D17446AF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xamarin.Forms.TabView", "Xamarin.Forms.TabView\Xamarin.Forms.TabView.csproj", "{B11E53B0-D046-467F-A97B-4BFC0274F965}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,6 +27,10 @@ Global
 		{CA4EB302-3C6F-4A8A-BCD0-D099D17446AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CA4EB302-3C6F-4A8A-BCD0-D099D17446AF}.Release|Any CPU.Build.0 = Release|Any CPU
 		{CA4EB302-3C6F-4A8A-BCD0-D099D17446AF}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{B11E53B0-D046-467F-A97B-4BFC0274F965}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B11E53B0-D046-467F-A97B-4BFC0274F965}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B11E53B0-D046-467F-A97B-4BFC0274F965}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B11E53B0-D046-467F-A97B-4BFC0274F965}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
