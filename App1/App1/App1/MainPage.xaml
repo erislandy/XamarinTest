@@ -34,8 +34,8 @@
             <Button 
                 VerticalOptions="Center"
                 HorizontalOptions="Center" 
-                Text="GavetasLeftView"
-                Command="{prism:NavigateTo 'SearchView'}"/>
+                Text="Event details"
+                Command="{prism:NavigateTo 'EventDetailsView'}"/>
             <Button 
                 Grid.Column="1"
                 VerticalOptions="Center"

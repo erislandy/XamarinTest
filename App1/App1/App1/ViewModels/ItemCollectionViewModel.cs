@@ -5,16 +5,16 @@ using System.Text;
 
 namespace App1.ViewModels
 {
-    public class LanguageViewModel: BindableBase
+    public class ItemCollectionViewModel: BindableBase
     {
-        private string _keyLanguage;
+        private string _key;
         private string _description;
         private bool _selected;
 
-        public string KeyLanguage 
+        public string Key 
         { 
-            get => _keyLanguage; 
-            set => SetProperty(ref _keyLanguage, value); 
+            get => _key; 
+            set => SetProperty(ref _key, value); 
         }
         public string Description {
             get => _description;

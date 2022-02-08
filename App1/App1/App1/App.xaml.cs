@@ -1,6 +1,7 @@
 ﻿using App1.Dialogs;
 using App1.ViewModels;
 using App1.Views;
+using App1.Services;
 using Prism;
 using Prism.Ioc;
 using System;
@@ -33,6 +34,8 @@ namespace App1
             containerRegistry.RegisterDialog<FilterSelection, FilterSelectionViewModel>("filterDialog");
             containerRegistry.RegisterForNavigation<MapElementsView, MapsElementsViewModel>();
             containerRegistry.RegisterForNavigation<SwipePage, SwipePageViewModel>();
+            containerRegistry.RegisterForNavigation<EventDetailsView, EventDetailsViewModel>();
+            containerRegistry.RegisterSingleton<IUploadServices, UploadServices>();
 
         }
 

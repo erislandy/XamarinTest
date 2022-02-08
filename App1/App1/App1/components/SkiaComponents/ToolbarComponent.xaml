@@ -85,9 +85,13 @@
                                 TextColor="White" />
                         </StackLayout>
                         <Grid Grid.Row="1" RowDefinitions="*,*">
-                            <StackLayout Grid.Row="0">
+                            <StackLayout
+                                Grid.Row="0"
+                                Spacing="0"
+                                VerticalOptions="StartAndExpand">
                                 <Label
                                     Grid.Row="1"
+                                    Margin="0,40,0,0"
                                     FontFamily="Roboto"
                                     FontSize="21"
                                     HorizontalOptions="CenterAndExpand"
@@ -98,75 +102,173 @@
                                     VerticalTextAlignment="Center" />
                                 <CollectionView
                                     x:Name="languages"
+                                    Margin="0,20,0,0"
                                     HorizontalOptions="CenterAndExpand"
                                     HorizontalScrollBarVisibility="Never"
-                                    ItemsLayout="VerticalGrid,4"
                                     SelectionMode="None"
-                                    VerticalOptions="CenterAndExpand"
+                                    VerticalOptions="StartAndExpand"
                                     WidthRequest="200">
-                                    
+                                    <CollectionView.ItemsLayout>
+                                        <GridItemsLayout
+                                            HorizontalItemSpacing="0"
+                                            Orientation="Vertical"
+                                            Span="4"
+                                            VerticalItemSpacing="0" />
+                                    </CollectionView.ItemsLayout>
+
                                     <CollectionView.ItemTemplate>
                                         <DataTemplate>
                                             <StackLayout
-                                                VerticalOptions="FillAndExpand"
                                                 HorizontalOptions="FillAndExpand"
-                                                Spacing="0">
+                                                Spacing="0"
+                                                VerticalOptions="StartAndExpand">
                                                 <Label
                                                     FontSize="18.7"
                                                     HorizontalOptions="CenterAndExpand"
                                                     HorizontalTextAlignment="Center"
-                                                    Text="{Binding KeyLanguage}"
-                                                    TextColor="#8dcfddlc"
+                                                    Text="{Binding Key}"
+                                                    TextColor="#bbdefb"
                                                     VerticalOptions="EndAndExpand"
                                                     VerticalTextAlignment="Center">
-                                                 
+
                                                     <Label.Triggers>
                                                         <DataTrigger
                                                             Binding="{Binding Selected}"
                                                             TargetType="Label"
-                                                            Value="True" >
-                                                            <Setter
-                                                                Property="TextColor"
-                                                                Value="#00ffff"/>
-                                                            <Setter
-                                                                Property="FontSize"
-                                                                Value="24"/>
+                                                            Value="True">
+                                                            <Setter Property="TextColor" Value="#00ffff" />
+                                                            <Setter Property="FontSize" Value="24" />
                                                         </DataTrigger>
                                                     </Label.Triggers>
                                                 </Label>
                                                 <BoxView
-                                                    IsVisible="false"
-                                                    HeightRequest="1.5"
-                                                    WidthRequest="20"
                                                     Margin="0,0,1.5,0"
+                                                    BackgroundColor="Lime"
+                                                    HeightRequest="1.5"
                                                     HorizontalOptions="CenterAndExpand"
+                                                    IsVisible="false"
                                                     VerticalOptions="StartAndExpand"
-                                                    BackgroundColor="#00C851"
-                                                    >
+                                                    WidthRequest="20">
                                                     <BoxView.Triggers>
                                                         <DataTrigger
                                                             Binding="{Binding Selected}"
                                                             TargetType="BoxView"
-                                                            Value="True" >
-                                                            <Setter
-                                                                Property="IsVisible"
-                                                                Value="True"/>
-                                                            
+                                                            Value="True">
+                                                            <Setter Property="IsVisible" Value="True" />
+
                                                         </DataTrigger>
                                                     </BoxView.Triggers>
                                                 </BoxView>
-
+                                                <StackLayout.GestureRecognizers>
+                                                    <TapGestureRecognizer Command="{Binding Source={x:Reference languages}, Path=BindingContext.SelectedLanguageCommand}" CommandParameter="{Binding .}" />
+                                                </StackLayout.GestureRecognizers>
                                             </StackLayout>
                                         </DataTemplate>
                                     </CollectionView.ItemTemplate>
 
                                 </CollectionView>
-                                <Path />
+                                <Path
+                                    Margin="75,-2,75,0"
+                                    Aspect="Fill"
+                                    Data="M284.49,635.23c36.29-.36,72.58-.52,108.88-.79L502.24,634,720,633.61l217.76.38,108.87.45c36.3.27,72.59.43,108.88.79v.34c-36.29.36-72.58.52-108.88.79l-108.87.45L720,637.19l-217.76-.37-108.87-.46c-36.3-.27-72.59-.42-108.88-.79Z"
+                                    Fill="white"
+                                    HeightRequest="2"
+                                    VerticalOptions="StartAndExpand" />
                             </StackLayout>
-                            <Grid Grid.Row="1" />
+                            <StackLayout
+                                Grid.Row="1"
+                                Spacing="0"
+                                VerticalOptions="StartAndExpand">
+                                <Label
+                                    Grid.Row="1"
+                                    Margin="0,10,0,0"
+                                    FontFamily="Roboto"
+                                    FontSize="21"
+                                    HorizontalOptions="CenterAndExpand"
+                                    HorizontalTextAlignment="Center"
+                                    Text="Moneda"
+                                    TextColor="#00ffff"
+                                    VerticalOptions="CenterAndExpand"
+                                    VerticalTextAlignment="Center" />
+                                <CollectionView
+                                    x:Name="currencyList"
+                                    Margin="0,17,0,0"
+                                    HeightRequest="40"
+                                    HorizontalOptions="CenterAndExpand"
+                                    HorizontalScrollBarVisibility="Never"
+                                    SelectionMode="None"
+                                    VerticalOptions="StartAndExpand"
+                                    WidthRequest="200">
+                                    <CollectionView.ItemsLayout>
+                                        <GridItemsLayout
+                                            HorizontalItemSpacing="0"
+                                            Orientation="Vertical"
+                                            Span="3"
+                                            VerticalItemSpacing="0" />
+                                    </CollectionView.ItemsLayout>
+
+                                    <CollectionView.ItemTemplate>
+                                        <DataTemplate>
+                                            <StackLayout
+                                                HorizontalOptions="FillAndExpand"
+                                                Spacing="0"
+                                                VerticalOptions="StartAndExpand">
+                                                <Label
+                                                    FontSize="18.7"
+                                                    HorizontalOptions="CenterAndExpand"
+                                                    HorizontalTextAlignment="Center"
+                                                    Text="{Binding Key}"
+                                                    TextColor="#bbdefb"
+                                                    VerticalOptions="EndAndExpand"
+                                                    VerticalTextAlignment="Center">
+
+                                                    <Label.Triggers>
+                                                        <DataTrigger
+                                                            Binding="{Binding Selected}"
+                                                            TargetType="Label"
+                                                            Value="True">
+                                                            <Setter Property="TextColor" Value="#00ffff" />
+                                                            <Setter Property="FontSize" Value="24" />
+                                                        </DataTrigger>
+                                                    </Label.Triggers>
+                                                </Label>
+                                                <BoxView
+                                                    Margin="0,0,1.5,0"
+                                                    BackgroundColor="Lime"
+                                                    HeightRequest="1.5"
+                                                    HorizontalOptions="CenterAndExpand"
+                                                    IsVisible="false"
+                                                    VerticalOptions="StartAndExpand"
+                                                    WidthRequest="20">
+                                                    <BoxView.Triggers>
+                                                        <DataTrigger
+                                                            Binding="{Binding Selected}"
+                                                            TargetType="BoxView"
+                                                            Value="True">
+                                                            <Setter Property="IsVisible" Value="True" />
+
+                                                        </DataTrigger>
+                                                    </BoxView.Triggers>
+                                                </BoxView>
+                                                <StackLayout.GestureRecognizers>
+                                                    <TapGestureRecognizer Command="{Binding Source={x:Reference currencyList}, Path=BindingContext.SelectedCurrencyCommand}" CommandParameter="{Binding .}" />
+                                                </StackLayout.GestureRecognizers>
+                                            </StackLayout>
+                                        </DataTemplate>
+                                    </CollectionView.ItemTemplate>
+
+                                </CollectionView>
+                                <Path
+                                    Margin="75,-2,75,0"
+                                    Aspect="Fill"
+                                    Data="M284.49,635.23c36.29-.36,72.58-.52,108.88-.79L502.24,634,720,633.61l217.76.38,108.87.45c36.3.27,72.59.43,108.88.79v.34c-36.29.36-72.58.52-108.88.79l-108.87.45L720,637.19l-217.76-.37-108.87-.46c-36.3-.27-72.59-.42-108.88-.79Z"
+                                    Fill="white"
+                                    HeightRequest="2"
+                                    VerticalOptions="StartAndExpand" />
+                            </StackLayout>
                         </Grid>
                         <Grid
-                            Grid.Row="1"
+                            Grid.Row="2"
                             Margin="0,0,0,18"
                             HeightRequest="50"
                             RowDefinitions="Auto,*,Auto"
@@ -222,6 +324,9 @@
                                     </LinearGradientBrush>
                                 </BoxView.Background>
                             </BoxView>
+                            <Grid.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding LogoutCommand}" />
+                            </Grid.GestureRecognizers>
                         </Grid>
                     </Grid>
                     <Grid
@@ -289,6 +394,7 @@
                                 WidthRequest="{Binding Source={x:Reference generalContainer}, Path=HeightRequest}">
                                 <skia:SKCanvasView.GestureRecognizers>
                                     <TapGestureRecognizer Tapped="Undo_Tapped" />
+                                    <TapGestureRecognizer NumberOfTapsRequired="2" Tapped="OpenToolbarMethod" />
                                 </skia:SKCanvasView.GestureRecognizers>
                             </skia:SKCanvasView>
                         </Grid>

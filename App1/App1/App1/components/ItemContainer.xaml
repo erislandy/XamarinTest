@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:converter="clr-namespace:App1.Converter"
+             xmlns:xamanimation="clr-namespace:Xamanimation;assembly=Xamanimation"
+             x:Class="App1.components.ItemContainer">
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <converter:PathKeepVerticalSizeConverter x:Key="pathDataConverter" />
+            
+        </ResourceDictionary>
+    </ContentView.Resources>
+  <ContentView.Content>
+      <!--
+      
+      -->
+        <Frame
+                x:Name="frameContainer1"
+                Grid.Row="0"
+                Padding="0"
+                BackgroundColor="#2e313b"
+                CornerRadius="16"
+                HorizontalOptions="CenterAndExpand"
+                VerticalOptions="CenterAndExpand">
+            <Grid>
+                <Path
+                        Margin="0"
+                        Aspect="Fill"
+                        Data="{Binding Source={x:Reference frameContainer1}, Path=WidthRequest, Converter={StaticResource pathDataConverter}, ConverterParameter=mainPath}"
+                        StrokeThickness="2">
+                    <Path.Stroke>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                            <GradientStop Offset="0" Color="Blue" />
+                            <GradientStop Offset="0.5" Color="#00fff4" />
+                            <GradientStop Offset="1" Color="#0101d8" />
+                        </LinearGradientBrush>
+                    </Path.Stroke>
+                </Path>
+                <Path 
+                        Data="{Binding Source={x:Reference frameContainer1}, 
+                        Path=WidthRequest, 
+                        Converter={StaticResource pathDataConverter}, 
+                        ConverterParameter=bottomPath}">
+                    <Path.Fill>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                            <GradientStop Offset="0" Color="#b0fffa" />
+                            <GradientStop Offset="0.55" Color="#00b0eb" />
+                            <GradientStop Offset="1" Color="#0101d8" />
+                        </LinearGradientBrush>
+                    </Path.Fill>
+                </Path>
+                <Grid
+                    x:Name="verticalbar"
+                        WidthRequest="21.6"
+                        HorizontalOptions="EndAndExpand"
+                        ColumnSpacing="0"
+                        RowSpacing="0"
+                        Padding="0" >
+                    <Grid.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                    </Grid.GestureRecognizers>
+                    
+                    <Path
+                            Data="m 0 32 h 14.32 l 7.24 -32h -14.32z">
+                        <Path.Fill>
+                            <RadialGradientBrush Center="0.5,0.5">
+                                <GradientStop Color="#b9fff6" />
+                                <GradientStop Offset="1.0" Color="#01c1da" />
+                            </RadialGradientBrush>
+                        </Path.Fill>
+                    </Path>
+                    <Path
+                            Aspect="UniformToFill"
+                            Data="m 1.84 30.5 h 11.32 l 6.56 -29 h -11.32z">
+                        <Path.Fill>
+                            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                                <GradientStop Color="#b2fffc" />
+                                <GradientStop Offset="0.1" Color="#00fff6" />
+                                <GradientStop Offset="1" Color="#0101da" />
+
+                            </LinearGradientBrush>
+                        </Path.Fill>
+                    </Path>
+                </Grid>
+            </Grid>
+        </Frame>
+
+    </ContentView.Content>
+</ContentView>

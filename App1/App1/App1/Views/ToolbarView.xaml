@@ -1,32 +1,29 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="App1.Views.ToolbarView"
-             xmlns:components="clr-namespace:App1.components.SkiaComponents">
-    
+<ContentPage
+    x:Class="App1.Views.ToolbarView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:components="clr-namespace:App1.components.SkiaComponents">
+
     <ContentPage.Content>
         <Grid
-            RowDefinitions="Auto,*"
-            RowSpacing="0"
             BackgroundColor="AliceBlue"
-            >
+            RowDefinitions="Auto,*"
+            RowSpacing="0">
 
             <ListView
-                VerticalOptions="StartAndExpand"
-                Margin="0,10,0,0"
                 x:Name="statesList"
+                Margin="0,10,0,0"
                 HeightRequest="200"
                 ItemsSource="{Binding StatesList}"
-               
-                >
-            </ListView>
+                VerticalOptions="StartAndExpand" />
 
             <components:ToolbarComponent
                 Grid.Row="1"
-                Languages="{Binding Languages}"
                 ActivatedWindow="{Binding ActivatedWindow}"
-                StateToolbar="{Binding Path=SelectedItem, Source={x:Reference statesList}}"
-                />
+                CurrencyList="{Binding CurrencyList}"
+                Languages="{Binding Languages}"
+                StateToolbar="{Binding Path=SelectedItem, Source={x:Reference statesList}}" />
         </Grid>
     </ContentPage.Content>
 </ContentPage>

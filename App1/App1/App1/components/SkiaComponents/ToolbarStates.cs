@@ -10,8 +10,5 @@ namespace App1.components.SkiaComponents
         public const string COMPRESSED = "Compressed";
         public const string OPENED = "Opened";
 
-
-
-
     }
 }

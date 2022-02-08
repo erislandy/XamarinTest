@@ -34,22 +34,24 @@ namespace App1.components.SkiaComponents
         
         public static readonly BindableProperty LanguagesProperty = BindableProperty.Create(
                                                              "Languages",
-                                                             typeof(ObservableCollection<LanguageViewModel>),
+                                                             typeof(ObservableCollection<ItemCollectionViewModel>),
                                                              typeof(ToolbarComponent),
                                                              null,
                                                              propertyChanged: LanguagesMethod);
+        public static readonly BindableProperty CurrencyListProperty = BindableProperty.Create(
+                                                             "CurrencyList",
+                                                             typeof(ObservableCollection<ItemCollectionViewModel>),
+                                                             typeof(ToolbarComponent),
+                                                             null,
+                                                             propertyChanged: CurrencyListMethod);
 
-        private static void LanguagesMethod(BindableObject bindable, object oldValue, object newValue)
-        {
-            var source = (ObservableCollection<LanguageViewModel>)newValue;
-            (bindable as ToolbarComponent).languages.ItemsSource = source;
-        }
-
+        
         public static readonly BindableProperty ProfileCommandProperty = BindableProperty.Create(
                                                              "ProfileCommand",
                                                              typeof(ICommand),
                                                              typeof(ToolbarComponent),
                                                              null);
+        
         public static readonly BindableProperty CreateCommandProperty = BindableProperty.Create(
                                                              "CreateCommand",
                                                              typeof(ICommand),
@@ -118,12 +120,20 @@ namespace App1.components.SkiaComponents
                 SetValue(StateToolbarProperty, value);
             }
         }
-        public ObservableCollection<LanguageViewModel> Languages
+        public ObservableCollection<ItemCollectionViewModel> Languages
         {
-            get { return (ObservableCollection<LanguageViewModel>)GetValue(LanguagesProperty); }
+            get { return (ObservableCollection<ItemCollectionViewModel>)GetValue(LanguagesProperty); }
             set
             {
                 SetValue(LanguagesProperty, value);
+            }
+        }
+        public ObservableCollection<ItemCollectionViewModel> CurrencyList
+        {
+            get { return (ObservableCollection<ItemCollectionViewModel>)GetValue(CurrencyListProperty); }
+            set
+            {
+                SetValue(CurrencyListProperty, value);
             }
         }
         public string ActivatedWindow
@@ -142,6 +152,7 @@ namespace App1.components.SkiaComponents
                 SetValue(ProfileCommandProperty, value);
             }
         }
+        
         public ICommand CreateCommand
         {
             get { return (ICommand)GetValue(CreateCommandProperty); }
@@ -177,6 +188,16 @@ namespace App1.components.SkiaComponents
         #endregion
 
         #region Private methods
+        private static void LanguagesMethod(BindableObject bindable, object oldValue, object newValue)
+        {
+            var source = (ObservableCollection<ItemCollectionViewModel>)newValue;
+            (bindable as ToolbarComponent).languages.ItemsSource = source;
+        }
+        private static void CurrencyListMethod(BindableObject bindable, object oldValue, object newValue)
+        {
+            var source = (ObservableCollection<ItemCollectionViewModel>)newValue;
+            (bindable as ToolbarComponent).currencyList.ItemsSource = source;
+        }
         static void StateToolbarMethod(BindableObject bindable, object oldValue, object newValue)
         {
 
@@ -707,6 +728,10 @@ namespace App1.components.SkiaComponents
         #endregion
 
         #region Command Methods
+        private void TappedCloseToolbar(object sender, EventArgs e)
+        {
+            StateToolbar = ToolbarStates.EXPANDED;
+        }
         private void Profile_Tapped(object sender, EventArgs e)
         {
             ProfileCommand?.Execute(null);
@@ -727,12 +752,14 @@ namespace App1.components.SkiaComponents
         {
             UndoCommand?.Execute(null);
         }
+
+        private void OpenToolbarMethod(object sender, EventArgs e)
+        {
+            StateToolbar = ToolbarStates.OPENED;
+        }
         #endregion
 
-        private void TappedCloseToolbar(object sender, EventArgs e)
-        {
-            StateToolbar = ToolbarStates.EXPANDED;
-        }
+
     }
 
 }

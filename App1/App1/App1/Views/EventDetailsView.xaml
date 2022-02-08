@@ -1,0 +1,299 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="App1.Views.EventDetailsView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:converter="clr-namespace:App1.Converter"
+    xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+    xmlns:skiaControls="clr-namespace:App1.components.SkiaComponents">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converter:VideoSourceConverter x:Key="videoSourceConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <Grid
+            BackgroundColor="#0f0f28"
+            ColumnDefinitions="Auto,*,Auto"
+            ColumnSpacing="0"
+            RowDefinitions="*,Auto"
+            RowSpacing="0">
+            <Grid.Triggers>
+                <DataTrigger
+                    Binding="{Binding Loading}"
+                    TargetType="Grid"
+                    Value="True">
+                    <Setter Property="IsEnabled" Value="False" />
+                    <Setter Property="Opacity" Value="0.3" />
+                </DataTrigger>
+            </Grid.Triggers>
+            <!--
+          <Grid x:Name="container" RowDefinitions="*,*,*">
+        <Grid 
+                Grid.Row="1"
+                VerticalOptions="CenterAndExpand"
+                HorizontalOptions="CenterAndExpand"
+                >
+            <components:ItemContainer
+              
+                WidthFrame="250"
+                MargingFromLeft="60"
+                TranslationVerticalBar="150"/>
+            <Grid 
+                        ColumnSpacing="0"
+                        RowSpacing="0"
+                        WidthRequest="32"
+                        HorizontalOptions="EndAndExpand"
+                        >
+                <Path
+                        Data="m 0 16 a 16 16 0 0 1 32 0 a 16 16 0 0 1 -32 0"
+                        Fill="aqua"
+                        />
+                <Path
+                            VerticalOptions="CenterAndExpand"
+                            HorizontalOptions="CenterAndExpand"
+                            HeightRequest="21"
+                            WidthRequest="16"
+                            Data="M1167.42,96.64c-22-31.91-26.11-35.19-26.11-46.92a29.1,29.1,0,0,1,58.19,0c0,11.73-4.09,15-26.1,46.92a3.64,3.64,0,0,1-6,0Zm3-34.8a12.12,12.12,0,1,0-12.12-12.12A12.12,12.12,0,0,0,1170.41,61.84Z"
+                            Fill="#0f0f28"
+                            Aspect="UniformToFill"
+                            >
+
+                </Path>
+
+            </Grid>
+        </Grid>
+
+
+
+        </Grid>
+
+        -->
+
+
+            <!--  Marcos  -->
+            <Grid
+                Grid.RowSpan="2"
+                HorizontalOptions="StartAndExpand"
+                VerticalOptions="FillAndExpand"
+                WidthRequest="20">
+                <Path Aspect="Uniform" Data="M.44,2960.44l66.09-66.09-.44,1.06Q63.57,2542,63,2188.56l-.64-353.42-.17-353.42.28-353.42.75-353.42q1-353.41,3.34-706.84L67,69.1.44,2.56A1.5,1.5,0,0,1,2.56.44L69.1,67l.43.43V68q2.52,353.42,3.12,706.84l.63,353.42.17,353.42-.28,353.42-.75,353.42q-1,353.43-3.34,706.85v.62l-.44.44L2.56,2962.56a1.5,1.5,0,0,1-2.12-2.12Z">
+                    <Path.Fill>
+                        <LinearGradientBrush StartPoint="0,1" EndPoint="0,0">
+                            <GradientStop Offset="0" Color="blue" />
+                            <GradientStop Offset="0.05" Color="#0005ff" />
+                            <GradientStop Offset="0.11" Color="#0015fe" />
+                            <GradientStop Offset="0.18" Color="#002ffd" />
+                            <GradientStop Offset="0.25" Color="#0053fc" />
+                            <GradientStop Offset="0.33" Color="#0081fa" />
+                            <GradientStop Offset="0.41" Color="#00b9f8" />
+                            <GradientStop Offset="0.49" Color="#00faf5" />
+                            <GradientStop Offset="0.49" Color="#00fff5" />
+                            <GradientStop Offset="0.52" Color="#00e7f2" />
+                            <GradientStop Offset="0.6" Color="#00abec" />
+                            <GradientStop Offset="0.67" Color="#0177e6" />
+                            <GradientStop Offset="0.75" Color="#014de1" />
+                            <GradientStop Offset="0.82" Color="#012cde" />
+                            <GradientStop Offset="0.88" Color="#0114db" />
+                            <GradientStop Offset="0.95" Color="#0106da" />
+                            <GradientStop Offset="1" Color="#0101d9" />
+                        </LinearGradientBrush>
+                    </Path.Fill>
+
+                </Path>
+
+            </Grid>
+            <Grid
+                Grid.RowSpan="2"
+                Grid.Column="2"
+                HorizontalOptions="EndAndExpand"
+                VerticalOptions="FillAndExpand"
+                WidthRequest="20">
+                <Path Aspect="Uniform" Data="M73,2.56,6.93,68.65l.44-1.06Q9.89,421,10.48,774.44l.64,353.42.17,353.42L11,1834.7l-.75,353.42Q9.3,2541.54,6.92,2895l-.44-1.06L73,2960.44a1.5,1.5,0,1,1-2.12,2.12L4.36,2896l-.43-.43V2895Q1.4,2541.55.8,2188.12L.17,1834.7,0,1481.28l.28-353.42L1,774.44Q2,421,4.37,67.59V67l.44-.44L70.9.44A1.5,1.5,0,1,1,73,2.56Z">
+                    <Path.Fill>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                            <GradientStop Offset="0" Color="blue" />
+                            <GradientStop Offset="0.05" Color="#0005ff" />
+                            <GradientStop Offset="0.11" Color="#0015fe" />
+                            <GradientStop Offset="0.18" Color="#002ffd" />
+                            <GradientStop Offset="0.25" Color="#0053fc" />
+                            <GradientStop Offset="0.33" Color="#0081fa" />
+                            <GradientStop Offset="0.41" Color="#00b9f8" />
+                            <GradientStop Offset="0.49" Color="#00faf5" />
+                            <GradientStop Offset="0.49" Color="#00fff5" />
+                            <GradientStop Offset="0.52" Color="#00e7f2" />
+                            <GradientStop Offset="0.6" Color="#00abec" />
+                            <GradientStop Offset="0.67" Color="#0177e6" />
+                            <GradientStop Offset="0.75" Color="#014de1" />
+                            <GradientStop Offset="0.82" Color="#012cde" />
+                            <GradientStop Offset="0.88" Color="#0114db" />
+                            <GradientStop Offset="0.95" Color="#0106da" />
+                            <GradientStop Offset="1" Color="#0101d9" />
+                        </LinearGradientBrush>
+                    </Path.Fill>
+                </Path>
+            </Grid>
+            <!--  End marcos  -->
+
+            <Grid
+                x:Name="container"
+                Grid.Column="1"
+                Margin="0,30,0,0"
+                RowDefinitions="Auto,Auto,Auto,*">
+
+                <!--  Video  -->
+                <Grid
+                    x:Name="videoContent"
+                    Padding="0"
+                    BackgroundColor="#e0c1c1c1"
+                    ColumnSpacing="0"
+                    HeightRequest="203"
+                    RowSpacing="0"
+                    VerticalOptions="CenterAndExpand">
+                    <Grid.Triggers>
+                        <DataTrigger
+                            Binding="{Binding Source={x:Reference videoXCT}, Path=IsVisible}"
+                            TargetType="Grid"
+                            Value="True">
+                            <Setter Property="BackgroundColor" Value="Transparent" />
+                        </DataTrigger>
+                        <DataTrigger
+                            Binding="{Binding Source={x:Reference mainPicture}, Path=IsVisible}"
+                            TargetType="Grid"
+                            Value="True">
+                            <Setter Property="BackgroundColor" Value="Transparent" />
+                        </DataTrigger>
+
+                    </Grid.Triggers>
+                    <!--  Main Video Region  -->
+                    <StackLayout
+                        HorizontalOptions="CenterAndExpand"
+                        IsVisible="false"
+                        Spacing="0"
+                        VerticalOptions="CenterAndExpand">
+                        <Label
+                            x:Name="plusIcon"
+                            FontFamily="Font-Awesome-5-Free-Solid-900"
+                            FontSize="46"
+                            HorizontalOptions="CenterAndExpand"
+                            HorizontalTextAlignment="Center"
+                            TextColor="#2e313b"
+                            VerticalOptions="CenterAndExpand"
+                            VerticalTextAlignment="Center" />
+                        <Label
+                            Margin="0,10,0,0"
+                            FontFamily="Roboto-Italic"
+                            FontSize="Medium"
+                            HorizontalOptions="CenterAndExpand"
+                            HorizontalTextAlignment="Center"
+                            Text="Agregue una Imagen o Video para tu Perfil"
+                            TextColor="#2e313b"
+                            VerticalOptions="CenterAndExpand"
+                            VerticalTextAlignment="Center" />
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
+                        </StackLayout.GestureRecognizers>
+                        <StackLayout.Triggers>
+                            <DataTrigger
+                                Binding="{Binding Path=IsVisible, Source={x:Reference videoXCT}}"
+                                TargetType="StackLayout"
+                                Value="False">
+                                <Setter Property="IsVisible" Value="true" />
+                            </DataTrigger>
+                            <DataTrigger
+                                Binding="{Binding Path=IsVisible, Source={x:Reference mainPicture}}"
+                                TargetType="StackLayout"
+                                Value="False">
+                                <Setter Property="IsVisible" Value="true" />
+                            </DataTrigger>
+
+                        </StackLayout.Triggers>
+                    </StackLayout>
+                    <xct:MediaElement
+                        x:Name="videoXCT"
+                        AutoPlay="True"
+                        HeightRequest="203"
+                        HorizontalOptions="Center"
+                        IsVisible="{Binding IsVideoDownloaded}"
+                        ShowsPlaybackControls="False"
+                        Source="{Binding MainVideo, Converter={StaticResource videoSourceConverter}}"
+                        WidthRequest="355" />
+                    <Grid IsVisible="{Binding IsVideoDownloaded}">
+                        <Grid.GestureRecognizers>
+                            <SwipeGestureRecognizer Command="{Binding ClearMediaCommand}" Direction="Down,Right" />
+                        </Grid.GestureRecognizers>
+                    </Grid>
+                    <Grid
+                        HeightRequest="60"
+                        HorizontalOptions="CenterAndExpand"
+                        IsVisible="{Binding Path=IsVisible, Source={x:Reference videoXCT}}"
+                        VerticalOptions="CenterAndExpand">
+                        <skiaControls:PlaySkiaControl
+                            x:Name="playButton"
+                            HorizontalOptions="CenterAndExpand"
+                            IsVisible="false"
+                            WidthRequest="50">
+                            <skiaControls:PlaySkiaControl.Triggers>
+                                <DataTrigger
+                                    Binding="{Binding Path=CurrentState, Source={x:Reference videoXCT}}"
+                                    TargetType="globalComponents:PlaySkiaControl"
+                                    Value="{x:Static xct:MediaElementState.Stopped}">
+                                    <Setter Property="IsVisible" Value="true" />
+                                </DataTrigger>
+                            </skiaControls:PlaySkiaControl.Triggers>
+                        </skiaControls:PlaySkiaControl>
+
+                    </Grid>
+                    <!--  End Main Video Region  -->
+                    <!--  Main Picture region  -->
+                    <Image
+                        x:Name="mainPicture"
+                        Aspect="Fill"
+                        HeightRequest="203"
+                        IsVisible="{Binding IsImageDownloaded}"
+                        Source="{Binding MainPicture}">
+                        <Image.GestureRecognizers>
+                            <SwipeGestureRecognizer Command="{Binding ClearMediaCommand}" Direction="Down,Up" />
+                        </Image.GestureRecognizers>
+                    </Image>
+                    <!--  End Main Picture region  -->
+
+                </Grid>
+                <!--  End Video  -->
+
+            </Grid>
+            <ActivityIndicator
+                Grid.RowSpan="2"
+                Grid.Column="1"
+                HeightRequest="50"
+                HorizontalOptions="Center"
+                IsRunning="{Binding Loading}"
+                VerticalOptions="Center" />
+            <Grid
+                Grid.Row="0"
+                Grid.RowSpan="2"
+                Grid.ColumnSpan="3"
+                HeightRequest="250"
+                HorizontalOptions="CenterAndExpand"
+                VerticalOptions="EndAndExpand"
+                WidthRequest="40">
+                <Grid.GestureRecognizers>
+                    <SwipeGestureRecognizer Command="{Binding SwitchToolbarCommand}" Direction="Up,Down" />
+                </Grid.GestureRecognizers>
+            </Grid>
+            <Grid
+                Grid.Row="1"
+                Grid.ColumnSpan="3"
+                HeightRequest="{Binding Path=HeightRequest, Source={x:Reference toolbar}}" />
+            <skiaControls:ToolbarComponent
+                x:Name="toolbar"
+                Grid.Row="0"
+                Grid.RowSpan="2"
+                Grid.ColumnSpan="3"
+                ActivatedWindow="profile"
+                CurrencyList="{Binding MenuService.CurrencyList}"
+                />
+
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
