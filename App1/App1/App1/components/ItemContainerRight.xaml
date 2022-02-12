@@ -1,10 +1,8 @@
-﻿<?xml version="1.0" encoding="UTF-8" ?>
-<ContentView
-    x:Class="App1.components.ItemContainer"
-    xmlns="http://xamarin.com/schemas/2014/forms"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:converter="clr-namespace:App1.Converter"
-    xmlns:xamanimation="clr-namespace:Xamanimation;assembly=Xamanimation">
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="App1.components.ItemContainerRight"
+             xmlns:converter="clr-namespace:App1.Converter">
     <ContentView.Resources>
         <ResourceDictionary>
             <converter:PathKeepVerticalSizeConverter x:Key="pathDataConverter" />
@@ -12,20 +10,23 @@
         </ResourceDictionary>
     </ContentView.Resources>
     <ContentView.Content>
+        <!--
+      
+      -->
         <Frame
-            x:Name="frameContainer1"
-            Grid.Row="0"
-            Padding="0"
-            BackgroundColor="#2e313b"
-            CornerRadius="16"
-            HorizontalOptions="CenterAndExpand"
-            VerticalOptions="CenterAndExpand">
+                x:Name="frameContainer1"
+                Grid.Row="0"
+                Padding="0"
+                BackgroundColor="#2e313b"
+                CornerRadius="16"
+                HorizontalOptions="CenterAndExpand"
+                VerticalOptions="CenterAndExpand">
             <Grid>
                 <Path
-                    Margin="0"
-                    Aspect="Fill"
-                    Data="{Binding Source={x:Reference frameContainer1}, Path=WidthRequest, Converter={StaticResource pathDataConverter}, ConverterParameter=mainPath}"
-                    StrokeThickness="2">
+                        Margin="0"
+                        Aspect="Fill"
+                        Data="{Binding Source={x:Reference frameContainer1}, Path=WidthRequest, Converter={StaticResource pathDataConverter}, ConverterParameter=mainPath}"
+                        StrokeThickness="2">
                     <Path.Stroke>
                         <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
                             <GradientStop Offset="0" Color="Blue" />
@@ -34,7 +35,11 @@
                         </LinearGradientBrush>
                     </Path.Stroke>
                 </Path>
-                <Path Data="{Binding Source={x:Reference frameContainer1}, Path=WidthRequest, Converter={StaticResource pathDataConverter}, ConverterParameter=bottomPath}">
+                <Path 
+                        Data="{Binding Source={x:Reference frameContainer1}, 
+                        Path=WidthRequest, 
+                        Converter={StaticResource pathDataConverter}, 
+                        ConverterParameter=bottomPath}">
                     <Path.Fill>
                         <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
                             <GradientStop Offset="0" Color="#b0fffa" />
@@ -45,16 +50,17 @@
                 </Path>
                 <Grid
                     x:Name="verticalbar"
-                    Padding="0"
-                    ColumnSpacing="0"
-                    HorizontalOptions="EndAndExpand"
-                    RowSpacing="0"
-                    WidthRequest="21.6">
+                        WidthRequest="21.6"
+                        HorizontalOptions="StartAndExpand"
+                        ColumnSpacing="0"
+                        RowSpacing="0"
+                        Padding="0" >
                     <Grid.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
                     </Grid.GestureRecognizers>
 
-                    <Path Data="m 0 32 h 14.32 l 7.24 -32h -14.32z">
+                    <Path
+                        Data="m 0 0 h 14.32 l 7.24 32 h -14.32z">
                         <Path.Fill>
                             <RadialGradientBrush Center="0.5,0.5">
                                 <GradientStop Color="#b9fff6" />
@@ -62,7 +68,9 @@
                             </RadialGradientBrush>
                         </Path.Fill>
                     </Path>
-                    <Path Aspect="UniformToFill" Data="m 1.84 30.5 h 11.32 l 6.56 -29 h -11.32z">
+                    <Path
+                            Aspect="UniformToFill"
+                            Data="m 1.84 1.5 h 11.32 l 6.56 29 h -11.32z">
                         <Path.Fill>
                             <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
                                 <GradientStop Color="#b2fffc" />
@@ -77,5 +85,4 @@
         </Frame>
 
     </ContentView.Content>
-
 </ContentView>

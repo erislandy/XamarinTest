@@ -10,28 +10,27 @@ using Xamarin.Forms.Xaml;
 namespace App1.components
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class ItemContainer : ContentView
+    public partial class PriceItemContainer : ContentView
     {
-
         #region Bindables Properties
         public static readonly BindableProperty ClearingProperty = BindableProperty.Create(
                                                           "Clearing",
                                                           typeof(bool),
-                                                          typeof(ItemContainer),
+                                                          typeof(PriceItemContainer),
                                                           false,
                                                          propertyChanged: OnClearingChanged,
                                                          defaultBindingMode: BindingMode.TwoWay);
         public static readonly BindableProperty WidthFrameProperty = BindableProperty.Create(
                                                           "WidthFrame",
                                                           typeof(double),
-                                                          typeof(ItemContainer),
+                                                          typeof(PriceItemContainer),
                                                           395.00,
                                                          propertyChanged: OnWidthFrameChanged,
                                                          defaultBindingMode: BindingMode.TwoWay);
         public static readonly BindableProperty MargingFromLeftProperty = BindableProperty.Create(
                                                          "MargingFromLeft",
                                                          typeof(double),
-                                                         typeof(ItemContainer),
+                                                         typeof(PriceItemContainer),
                                                          0.00,
                                                         propertyChanged: OnMargingFromLeftChanged,
                                                         defaultBindingMode: BindingMode.TwoWay);
@@ -69,26 +68,26 @@ namespace App1.components
         #region Methods
         static void OnWidthFrameChanged(BindableObject bindable, object oldValue, object newValue)
         {
-            var parent = bindable as ItemContainer;
+            var parent = bindable as PriceItemContainer;
             parent.frameContainer1.WidthRequest = (double)newValue;
             parent.WidthFrame = (double)newValue;
         }
         static void OnMargingFromLeftChanged(BindableObject bindable, object oldValue, object newValue)
         {
-            var parent = bindable as ItemContainer;
+            var parent = bindable as PriceItemContainer;
             parent.verticalbar.Margin = new Thickness(0, 0, (double)newValue, 0);
             parent.MargingFromLeft = (double)newValue;
         }
         static void OnClearingChanged(BindableObject bindable, object oldValue, object newValue)
         {
-            var parent = bindable as ItemContainer;
+            var parent = bindable as PriceItemContainer;
             parent.Clearing = (bool)newValue;
         }
         #endregion
 
         #region Constructors
 
-        public ItemContainer()
+        public PriceItemContainer()
         {
             InitializeComponent();
 

@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="App1.components.ModalPickerComponent"
+             xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+             x:Name="instanceClass">
+  <ContentView.Content>
+        <AbsoluteLayout
+            x:Name="absolute"
+            VerticalOptions="EndAndExpand"
+            >
+            <Grid
+                    AbsoluteLayout.LayoutBounds="0,0,1,1"
+                    AbsoluteLayout.LayoutFlags="SizeProportional"
+                    BackgroundColor="White"
+                    Opacity="0.9">
+                <Grid.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="CloseModalTapped"/>
+                </Grid.GestureRecognizers>
+            </Grid>
+
+            <pancake:PancakeView
+                    x:Name="modalContainer"
+                    IsVisible="false"
+                    Opacity="0"
+                    Grid.Row="1"
+                    Padding="0"
+                    AbsoluteLayout.LayoutBounds="0.5,0.5,250,200"
+                    AbsoluteLayout.LayoutFlags="PositionProportional"
+                    BackgroundColor="#2e313b"
+                    CornerRadius="32"
+                    VerticalOptions="CenterAndExpand">
+                <CollectionView
+                        x:Name="collection"
+                        Margin="20"
+                        HorizontalOptions="FillAndExpand"
+                        HorizontalScrollBarVisibility="Never"
+                        SelectionMode="None"
+                        VerticalOptions="FillAndExpand"
+                        WidthRequest="200">
+
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <StackLayout Margin="0,10,0,0" HorizontalOptions="FillAndExpand">
+                                <Label
+                                        FontSize="18.7"
+                                        HorizontalTextAlignment="Center"
+                                        Text="{Binding Key}"
+                                        TextColor="#bbdefb"
+                                        VerticalTextAlignment="Center">
+                                    <Label.Triggers>
+                                        <DataTrigger
+                                                Binding="{Binding Selected}"
+                                                TargetType="Label"
+                                                Value="True">
+                                            <Setter Property="TextColor" Value="#00ffff" />
+                                            <Setter Property="FontSize" Value="24" />
+                                        </DataTrigger>
+                                    </Label.Triggers>
+                                </Label>
+                                <Path
+                                        Margin="15,-2,15,0"
+                                        Aspect="Fill"
+                                        Data="M284.49,635.23c36.29-.36,72.58-.52,108.88-.79L502.24,634,720,633.61l217.76.38,108.87.45c36.3.27,72.59.43,108.88.79v.34c-36.29.36-72.58.52-108.88.79l-108.87.45L720,637.19l-217.76-.37-108.87-.46c-36.3-.27-72.59-.42-108.88-.79Z"
+                                        Fill="white"
+                                        HeightRequest="2"
+                                        HorizontalOptions="FillAndExpand"
+                                        VerticalOptions="StartAndExpand">
+                                    <Path.Triggers>
+                                        <DataTrigger
+                                                Binding="{Binding Selected}"
+                                                TargetType="Path"
+                                                Value="True">
+                                            <Setter Property="Fill" Value="Lime" />
+
+                                        </DataTrigger>
+                                    </Path.Triggers>
+                                </Path>
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="SelectedItemMethod"/>
+                                </StackLayout.GestureRecognizers>
+                            </StackLayout>
+
+
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </pancake:PancakeView>
+        </AbsoluteLayout>
+
+    </ContentView.Content>
+</ContentView>

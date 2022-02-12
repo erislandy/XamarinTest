@@ -30,12 +30,28 @@ namespace App1.Converter
                 return converter.ConvertFromInvariantString(bottomPathConverted);
 
             }
+
+            if(parameterString == "precioPath")
+            {
+                var dataPrecio = "m 0 16 a 16 16 0 0 1 16 -16 h 97 a 32 32 0 0 1 32 32 h -129 a 16 16 0 0 1 -16 -16";
+                var valueStringPrecio = 97;
+                var valueConverted = 0.442*width - 77.59;
+
+                var valueStringPrecio2 = 129;
+                var valueConverted2 = valueConverted + 32;
+                var dataPrecioConverted = dataPrecio.Replace(valueStringPrecio.ToString(), valueConverted.ToString())
+                                                    .Replace(valueStringPrecio2.ToString(), valueConverted2.ToString());
+           
+                return converter.ConvertFromInvariantString(dataPrecioConverted);
+            }
             var valueInString = 363;
             
             var data = "m 0 16 a 16 16 0 0 1 16 -16 h 363 a 16 16 0 0 1 0 32 h -363 a 16 16 0 0 1 -16 -16";
             var daraConverted = data.Replace(valueInString.ToString(), numberConverted.ToString());
             return converter.ConvertFromInvariantString(daraConverted);
        
+
+            
 
         }
 

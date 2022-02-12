@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="UTF-8" ?>
 <ContentView
-    x:Class="App1.components.ItemContainer"
+    x:Class="App1.components.PriceItemContainer"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:converter="clr-namespace:App1.Converter"
@@ -43,6 +43,25 @@
                         </LinearGradientBrush>
                     </Path.Fill>
                 </Path>
+
+                <Grid Margin="-2,0,0,0" HorizontalOptions="Start">
+                    <Path
+                        Aspect="Uniform"
+                        Data="{Binding Source={x:Reference frameContainer1}, Path=WidthRequest, Converter={StaticResource pathDataConverter}, ConverterParameter=precioPath}"
+                        Fill="#1e1d25"
+                        StrokeThickness="2">
+                        <Path.Stroke>
+                            <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                                <GradientStop Offset="0" Color="Blue" />
+                                <GradientStop Offset="0.5" Color="#00fff4" />
+                                <GradientStop Offset="1" Color="#0101d8" />
+                            </LinearGradientBrush>
+                        </Path.Stroke>
+
+                    </Path>
+
+                </Grid>
+
                 <Grid
                     x:Name="verticalbar"
                     Padding="0"
