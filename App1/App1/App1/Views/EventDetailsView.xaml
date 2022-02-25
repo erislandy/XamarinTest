@@ -3,129 +3,21 @@
     x:Class="App1.Views.EventDetailsView"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:converter="clr-namespace:App1.Converter"
-    xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
     xmlns:components="clr-namespace:App1.components"
-    xmlns:xamanimation="clr-namespace:Xamanimation;assembly=Xamanimation" 
-            
-    xmlns:skiaControls="clr-namespace:App1.components.SkiaComponents">
-    <ContentPage.Resources>
-        <ResourceDictionary>
-            <converter:PriceConverter x:Key="priceConverter"/>
-            <converter:PriceHeightConverter x:Key="priceHeightConverter"/>
-        </ResourceDictionary>
-    </ContentPage.Resources>
+    >
+    
     <ContentPage.Content>
-        <Grid
-            RowDefinitions="Auto,Auto,*"
-            RowSpacing="0"
-            VerticalOptions="StartAndExpand"
-            HorizontalOptions="CenterAndExpand"
+        <Grid 
+            RowDefinitions="*,*"
+            ColumnDefinitions="*,*"
             >
-            <components:PriceItemContainer
-                WidthFrame="390"
-                MargingFromLeft="40">
-                <components:PriceItemContainer.GestureRecognizers>
-                    <TapGestureRecognizer Tapped="PriceContainer_Tapped"/>
-                </components:PriceItemContainer.GestureRecognizers>
-            </components:PriceItemContainer>
-            <Grid 
-                WidthRequest="32"
-                Padding="0"
-                Margin="0"
-                HorizontalOptions="StartAndExpand"
-                BackgroundColor="Aqua"
-                >
-                <Path Data="m 0 16 a 16 16 0 0 1 32 0 a 16 16 0 0 1 -32 0" Fill="Aqua"/>
-                <Label
-                    VerticalOptions="FillAndExpand"
-                    HorizontalOptions="FillAndExpand"
-                    HorizontalTextAlignment="Center"
-                    VerticalTextAlignment="Center"
-                    Text="{Binding Path=Prices, Converter={x:StaticResource priceConverter}}"
-                    >
-                    <Label.Triggers>
-                        <DataTrigger
-                            TargetType="Label"
-                            Binding="{Binding IsVisible, Source={x:Reference plusIcon}}"
-                            Value="True"
-                            >
-                            <Setter Property="IsVisible" Value="false"/>
-
-                        </DataTrigger>
-                    </Label.Triggers>
-                    <Label.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="PriceContainer_Tapped"/>
-                    </Label.GestureRecognizers>
-                </Label>
-                <Label
-                    IsVisible="false"
-                    x:Name="plusIcon"
-                    VerticalOptions="FillAndExpand"
-                    HorizontalOptions="FillAndExpand"
-                    HorizontalTextAlignment="Center"
-                    VerticalTextAlignment="Center"
-                    Text="P"
-                    >
-                    <Label.GestureRecognizers>
-                        <TapGestureRecognizer Command="{Binding NewBlankPriceCommand}" Tapped="plus_tapped"/>
-                    </Label.GestureRecognizers>
-                </Label>
-            </Grid>
-            <Grid
-                Margin="16,0,16,0"
-                x:Name="modalPrice"
+            <components:PinCustomerControl 
+                ImageSource="https://www.nj.com/resizer/iqV2J-QFgh0227ybHBor4exTVBk=/800x0/smart/cloudfront-us-east-1.images.arcpublishing.com/advancelocal/SJGKVE5UNVESVCW7BBOHKQCZVE.jpg"/>
+            <components:PinCustomerControl 
                 Grid.Row="1"
-                BackgroundColor="#2e313b"
-                VerticalOptions="StartAndExpand">
-                <CollectionView
-                        IsVisible="false"
-                        Opacity="0"
-                        Margin="0,10,0,10"
-                        x:Name="prices"
-                        VerticalScrollBarVisibility="Default"
-                        ItemsSource="{Binding Prices}">
+                Scale="2"
+                ImageSource="https://www.nj.com/resizer/iqV2J-QFgh0227ybHBor4exTVBk=/800x0/smart/cloudfront-us-east-1.images.arcpublishing.com/advancelocal/SJGKVE5UNVESVCW7BBOHKQCZVE.jpg"/>
 
-                    
-                    <CollectionView.ItemsLayout>
-                        <LinearItemsLayout ItemSpacing="10" Orientation="Vertical" />
-                    </CollectionView.ItemsLayout>
-
-                    <CollectionView.ItemTemplate>
-                        <DataTemplate>
-                            <Grid>
-                                <components:PriceItemContainer
-                                    WidthFrame="334"
-                                    MargingFromLeft="40"
-                                    />
-                                
-                            </Grid>
-                        </DataTemplate>
-                    </CollectionView.ItemTemplate>
-
-                </CollectionView>
-               
-            </Grid>
-
-            <StackLayout
-                VerticalOptions="EndAndExpand"
-                Spacing="20"
-                Grid.Row="2"
-                >
-                <Button
-                WidthRequest="120"
-                HeightRequest="60"
-                Command="{Binding SaveCommand}"
-                />
-
-
-                <Label 
-                Grid.Row="2"
-                Text="{Binding Text}"
-                VerticalOptions="CenterAndExpand"
-                HorizontalOptions="CenterAndExpand"/>
-            </StackLayout>
-           
         </Grid>
     </ContentPage.Content>
 </ContentPage>

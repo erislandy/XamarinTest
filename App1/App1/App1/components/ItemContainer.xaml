@@ -4,15 +4,21 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:converter="clr-namespace:App1.Converter"
-    xmlns:xamanimation="clr-namespace:Xamanimation;assembly=Xamanimation">
+    xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+    xmlns:xamanimation="clr-namespace:Xamanimation;assembly=Xamanimation"
+    x:Name="instanceClass">
     <ContentView.Resources>
         <ResourceDictionary>
             <converter:PathKeepVerticalSizeConverter x:Key="pathDataConverter" />
-
+           
         </ResourceDictionary>
     </ContentView.Resources>
     <ContentView.Content>
-        <Frame
+        <Grid 
+            VerticalOptions="StartAndExpand"
+            RowSpacing="0"
+            RowDefinitions="*,Auto">
+            <Frame
             x:Name="frameContainer1"
             Grid.Row="0"
             Padding="0"
@@ -20,62 +26,112 @@
             CornerRadius="16"
             HorizontalOptions="CenterAndExpand"
             VerticalOptions="CenterAndExpand">
-            <Grid>
-                <Path
+                <Grid >
+                    <Path
                     Margin="0"
                     Aspect="Fill"
                     Data="{Binding Source={x:Reference frameContainer1}, Path=WidthRequest, Converter={StaticResource pathDataConverter}, ConverterParameter=mainPath}"
                     StrokeThickness="2">
-                    <Path.Stroke>
-                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
-                            <GradientStop Offset="0" Color="Blue" />
-                            <GradientStop Offset="0.5" Color="#00fff4" />
-                            <GradientStop Offset="1" Color="#0101d8" />
-                        </LinearGradientBrush>
-                    </Path.Stroke>
-                </Path>
-                <Path Data="{Binding Source={x:Reference frameContainer1}, Path=WidthRequest, Converter={StaticResource pathDataConverter}, ConverterParameter=bottomPath}">
-                    <Path.Fill>
-                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
-                            <GradientStop Offset="0" Color="#b0fffa" />
-                            <GradientStop Offset="0.55" Color="#00b0eb" />
-                            <GradientStop Offset="1" Color="#0101d8" />
-                        </LinearGradientBrush>
-                    </Path.Fill>
-                </Path>
-                <Grid
+                        <Path.Triggers>
+                            <DataTrigger TargetType="Path" Binding="{Binding Path=IsInvalid, Source={x:Reference instanceClass}}" Value="True">
+                                <Setter Property="Stroke" Value="#e05a60"/> 
+                            </DataTrigger>
+                        </Path.Triggers>
+                        <Path.Stroke>
+                            <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                                <GradientStop Offset="0" Color="Blue" />
+                                <GradientStop Offset="0.5" Color="#00fff4" />
+                                <GradientStop Offset="1" Color="#0101d8" />
+                            </LinearGradientBrush>
+                        </Path.Stroke>
+                    </Path>
+                    <Path Data="{Binding Source={x:Reference frameContainer1}, Path=WidthRequest, Converter={StaticResource pathDataConverter}, ConverterParameter=bottomPath}">
+                        <Path.Triggers>
+                            <DataTrigger TargetType="Path" Binding="{Binding Path=IsInvalid, Source={x:Reference instanceClass}}" Value="True">
+                                <Setter Property="Fill" Value="#e05a60"/>
+                            </DataTrigger>
+                        </Path.Triggers>
+                        <Path.Fill>
+                            <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                                <GradientStop Offset="0" Color="#b0fffa" />
+                                <GradientStop Offset="0.55" Color="#00b0eb" />
+                                <GradientStop Offset="1" Color="#0101d8" />
+                            </LinearGradientBrush>
+                        </Path.Fill>
+                    </Path>
+                    <Grid
                     x:Name="verticalbar"
                     Padding="0"
                     ColumnSpacing="0"
                     HorizontalOptions="EndAndExpand"
                     RowSpacing="0"
                     WidthRequest="21.6">
-                    <Grid.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
-                    </Grid.GestureRecognizers>
+                        <Grid.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
+                        </Grid.GestureRecognizers>
 
-                    <Path Data="m 0 32 h 14.32 l 7.24 -32h -14.32z">
-                        <Path.Fill>
-                            <RadialGradientBrush Center="0.5,0.5">
-                                <GradientStop Color="#b9fff6" />
-                                <GradientStop Offset="1.0" Color="#01c1da" />
-                            </RadialGradientBrush>
-                        </Path.Fill>
-                    </Path>
-                    <Path Aspect="UniformToFill" Data="m 1.84 30.5 h 11.32 l 6.56 -29 h -11.32z">
-                        <Path.Fill>
-                            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-                                <GradientStop Color="#b2fffc" />
-                                <GradientStop Offset="0.1" Color="#00fff6" />
-                                <GradientStop Offset="1" Color="#0101da" />
+                        <Path Data="m 0 32 h 14.32 l 7.24 -32h -14.32z">
+                            <Path.Fill>
+                                <RadialGradientBrush Center="0.5,0.5">
+                                    <GradientStop Color="#b9fff6" />
+                                    <GradientStop Offset="1.0" Color="#01c1da" />
+                                </RadialGradientBrush>
+                            </Path.Fill>
+                        </Path>
+                        <Path Aspect="UniformToFill" Data="m 1.84 30.5 h 11.32 l 6.56 -29 h -11.32z">
+                            <Path.Fill>
+                                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                                    <GradientStop Color="#b2fffc" />
+                                    <GradientStop Offset="0.1" Color="#00fff6" />
+                                    <GradientStop Offset="1" Color="#0101da" />
 
-                            </LinearGradientBrush>
-                        </Path.Fill>
-                    </Path>
+                                </LinearGradientBrush>
+                            </Path.Fill>
+                        </Path>
+                    </Grid>
                 </Grid>
-            </Grid>
-        </Frame>
+            </Frame>
 
+            <pancake:PancakeView
+                    Margin="20,0,0,0"
+                    Grid.Row="1"
+                    CornerRadius="0,0,5,5"
+                    HeightRequest="20"
+                    VerticalOptions="StartAndExpand"
+                    HorizontalOptions="StartAndExpand">
+                <Grid
+                    x:Name="errorContainer"
+                        WidthRequest="0"
+                        VerticalOptions="FillAndExpand"
+                        HorizontalOptions="FillAndExpand"
+                        BackgroundColor="#e05a60">
+                    <Label
+                        x:Name="lblTextError"
+                        Text="{Binding Path=TextError, Source={x:Reference instanceClass}}"
+                        Margin="5,0,5,0"
+                        TextColor="White"
+                        VerticalOptions="CenterAndExpand"
+                        HorizontalOptions="StartAndExpand"
+                        VerticalTextAlignment="Center"
+                        HorizontalTextAlignment="Start">
+                        
+                    </Label>
+                    <Grid.Triggers>
+                        <DataTrigger TargetType="Grid" Binding="{Binding Path=IsInvalid, Source={x:Reference instanceClass}}" Value="True">
+                            <DataTrigger.EnterActions>
+                                <xamanimation:AnimateDouble Duration="300" TargetProperty="Grid.WidthRequest" To="170"/>
+                            </DataTrigger.EnterActions>
+                            <DataTrigger.ExitActions>
+                                <xamanimation:AnimateDouble Duration="300" TargetProperty="Grid.WidthRequest" To="0"/>
+                            </DataTrigger.ExitActions>
+                        </DataTrigger>
+                    </Grid.Triggers>
+                </Grid>
+
+            </pancake:PancakeView>
+
+        </Grid>
+   
     </ContentView.Content>
 
 </ContentView>

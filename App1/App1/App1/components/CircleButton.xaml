@@ -1,0 +1,151 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="App1.components.CircleButton"
+              xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+              xmlns:shadows="clr-namespace:Sharpnado.Shades;assembly=Sharpnado.Shadows">
+
+    <ContentView.Content>
+        <shadows:Shadows
+             CornerRadius="27" 
+                Shades="{shadows:SingleShade BlurRadius=2, Offset='0,0', 
+                Opacity=0.75, Color=Cyan}"
+            >
+            <pancake:PancakeView
+            
+            HeightRequest="54.13"
+            WidthRequest="54.13"
+            VerticalOptions="CenterAndExpand"
+            HorizontalOptions="EndAndExpand"
+            CornerRadius="27.06">
+                <Grid>
+                    <Ellipse
+                    HeightRequest="54.13"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center"
+                    WidthRequest="54.13">
+                        <Ellipse.Fill>
+                            <LinearGradientBrush StartPoint="0,0" EndPoint="1,0.75">
+                                <GradientStop Offset="0.19" Color="#2e313b" />
+                                <GradientStop Offset="0.32" Color="#2b2e37" />
+                                <GradientStop Offset="0.45" Color="#22242b" />
+                                <GradientStop Offset="0.57" Color="#121418" />
+                                <GradientStop Offset="0.68" Color="Black" />
+                            </LinearGradientBrush>
+                        </Ellipse.Fill>
+
+                    </Ellipse>
+                    <Grid
+                Padding="0,0,0,0"
+                ColumnSpacing="0"
+                HorizontalOptions="FillAndExpand"
+                RowSpacing="0"
+                VerticalOptions="FillAndExpand">
+                        <Ellipse
+                    Margin="0"
+                    HeightRequest="54"
+                    HorizontalOptions="CenterAndExpand"
+                    VerticalOptions="CenterAndExpand"
+                    WidthRequest="54">
+                            <Ellipse.Fill>
+                                <LinearGradientBrush StartPoint="0,1" EndPoint="0.75,0">
+                                    <GradientStop Offset="0.08" Color="#5f667a" />
+                                    <GradientStop Offset="0.19" Color="#565c6e" />
+                                    <GradientStop Offset="0.39" Color="#3e424d" />
+                                    <GradientStop Offset="0.51" Color="#2d3036" />
+                                    <GradientStop Offset="0.96" Color="#c3d4eb" />
+                                </LinearGradientBrush>
+
+                            </Ellipse.Fill>
+
+                        </Ellipse>
+                        <!--  Sombra  -->
+                        <Ellipse
+                    Margin="0"
+                    HeightRequest="50"
+                    HorizontalOptions="CenterAndExpand"
+                    Opacity="1"
+                    VerticalOptions="CenterAndExpand"
+                    WidthRequest="50">
+                            <Ellipse.Fill>
+                                <RadialGradientBrush Center="0.5,0.5" Radius="0.4">
+                                    <GradientStop Offset="0.9" Color="#ffffff" />
+                                    <GradientStop Offset="1" Color="Black" />
+
+
+                                </RadialGradientBrush>
+
+                            </Ellipse.Fill>
+                        </Ellipse>
+                        <!--  Fin Sombra  -->
+
+                        <Ellipse
+                    HeightRequest="42.0"
+                    HorizontalOptions="CenterAndExpand"
+                    VerticalOptions="CenterAndExpand"
+                    WidthRequest="42.0">
+
+                            <Ellipse.Fill>
+                                <LinearGradientBrush StartPoint="0,1" EndPoint="1,0.3">
+                                    <GradientStop Offset="0.08" Color="#5f667a" />
+                                    <GradientStop Offset="0.19" Color="#565c6e" />
+                                    <GradientStop Offset="0.39" Color="#3e424d" />
+                                    <GradientStop Offset="0.51" Color="#2d3036" />
+                                    <GradientStop Offset="0.96" Color="#c3d4eb" />
+                                </LinearGradientBrush>
+
+                            </Ellipse.Fill>
+
+
+                        </Ellipse>
+
+                        <Ellipse
+                    HeightRequest="40.0"
+                    HorizontalOptions="CenterAndExpand"
+                    VerticalOptions="CenterAndExpand"
+                    WidthRequest="40.0">
+
+                            <Ellipse.Fill>
+                                <LinearGradientBrush StartPoint="1,0" EndPoint="0,0.7">
+                                    <GradientStop Offset="0.01" Color="#424654" />
+                                    <GradientStop Offset="0.16" Color="#3f4350" />
+                                    <GradientStop Offset="0.31" Color="#363944" />
+                                    <GradientStop Offset="0.45" Color="#262830" />
+                                    <GradientStop Offset="0.6" Color="#101115" />
+                                    <GradientStop Offset="0.69" Color="Black" />
+
+                                </LinearGradientBrush>
+
+                            </Ellipse.Fill>
+
+                        </Ellipse>
+
+                        <Label
+                    x:Name="lblButton"
+                    FontFamily="Font-Awesome-5-Free-Solid-900"
+                    FontSize="25"
+                    HorizontalOptions="FillAndExpand"
+                    HorizontalTextAlignment="Center"
+                    TextColor="Lime"
+                    VerticalOptions="FillAndExpand"
+                    VerticalTextAlignment="Center" />
+                        <Button
+                    x:Name="btn"
+                    BackgroundColor="#70737c"
+                    CornerRadius="28"
+                    HeightRequest="46"
+                    HorizontalOptions="CenterAndExpand"
+                    Opacity="0.5"
+                    VerticalOptions="CenterAndExpand"
+                    WidthRequest="46" />
+
+
+                    </Grid>
+
+                </Grid>
+
+            </pancake:PancakeView>
+
+        </shadows:Shadows>
+  </ContentView.Content>
+</ContentView>

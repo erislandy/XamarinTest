@@ -14,6 +14,20 @@ namespace App1.components
     {
 
         #region Bindables Properties
+        public static readonly BindableProperty TextErrorProperty = BindableProperty.Create(
+                                                          nameof(TextError),
+                                                          typeof(string),
+                                                          typeof(ItemContainer),
+                                                          string.Empty,
+                                                         propertyChanged: OnTextErrorChanged,
+                                                         defaultBindingMode: BindingMode.OneWay);
+        public static readonly BindableProperty IsInvalidProperty = BindableProperty.Create(
+                                                          nameof(IsInvalid),
+                                                          typeof(bool),
+                                                          typeof(ItemContainer),
+                                                          false,
+                                                         propertyChanged: OnIsInvalidChanged,
+                                                         defaultBindingMode: BindingMode.TwoWay);
         public static readonly BindableProperty ClearingProperty = BindableProperty.Create(
                                                           "Clearing",
                                                           typeof(bool),
@@ -48,6 +62,14 @@ namespace App1.components
                 SetValue(WidthFrameProperty, value);
             }
         }
+        public string TextError
+        {
+            get { return (string)GetValue(TextErrorProperty); }
+            set
+            {
+                SetValue(TextErrorProperty, value);
+            }
+        }
         public double MargingFromLeft
         {
             get { return (double)GetValue(MargingFromLeftProperty); }
@@ -62,6 +84,14 @@ namespace App1.components
             set
             {
                 SetValue(ClearingProperty, value);
+            }
+        }
+        public bool IsInvalid
+        {
+            get { return (bool)GetValue(IsInvalidProperty); }
+            set
+            {
+                SetValue(IsInvalidProperty, value);
             }
         }
         #endregion
@@ -83,6 +113,28 @@ namespace App1.components
         {
             var parent = bindable as ItemContainer;
             parent.Clearing = (bool)newValue;
+        }
+        static void OnTextErrorChanged(BindableObject bindable, object oldValue, object newValue)
+        {
+            var parent = bindable as ItemContainer;
+            parent.TextError = (string)newValue;
+            
+          
+        }
+        static  async void OnIsInvalidChanged(BindableObject bindable, object oldValue, object newValue)
+        {
+            var parent = bindable as ItemContainer;
+            parent.IsInvalid = (bool)newValue;
+
+            if(parent.IsInvalid)
+            {
+                await Task.Delay(300);
+                
+            }
+            parent.lblTextError.IsVisible = parent.IsInvalid;
+
+
+
         }
         #endregion
 

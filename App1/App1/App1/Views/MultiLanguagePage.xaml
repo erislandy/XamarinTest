@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="App1.Views.MultiLanguagePage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:resx="clr-namespace:App1.Resx">
+    <ContentPage.Content>
+        <StackLayout HorizontalOptions="FillAndExpand"
+                 VerticalOptions="Center" >
+            <!-- Place new controls here -->
+            <Label Text="{x:Static resx:AppResources.Welcome}" 
+               HorizontalOptions="Center"
+               VerticalOptions="Center" 
+               FontSize="Large"/>
+
+            <Picker x:Name="picker"
+                SelectedIndexChanged="picker_SelectedIndexChanged" 
+                Margin="20,0,20,0">
+                <Picker.Items>
+                    <x:String>Default</x:String>
+                    <x:String>French</x:String>
+                    <x:String>Spain</x:String>
+                </Picker.Items>
+            </Picker>
+        </StackLayout>
+
+    </ContentPage.Content>
+</ContentPage>

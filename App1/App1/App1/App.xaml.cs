@@ -13,6 +13,8 @@ namespace App1
 {
     public partial class App 
     {
+        public static int SelectedIndex = -1;
+
         public App() : this(null) { }
         public App(IPlatformInitializer initializer):base(initializer){}
 
@@ -36,6 +38,7 @@ namespace App1
             containerRegistry.RegisterForNavigation<SwipePage, SwipePageViewModel>();
             containerRegistry.RegisterForNavigation<EventDetailsView, EventDetailsViewModel>();
             containerRegistry.RegisterSingleton<IUploadServices, UploadServices>();
+            containerRegistry.RegisterForNavigation<MultiLanguagePage>();
 
         }
 
